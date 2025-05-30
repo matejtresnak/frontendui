@@ -44,9 +44,31 @@
 14. 5. 2025 - odebrani uzivatele funguje kompletne i s refreshem stranky
 - zprovoznili jsme formulář s dropdown menu a tlačítkem, který umožňuje odstranit uživatele ze studijní skupiny
 
-14. 5. 2025 - funguje zobrazeni roli
+14. 5. 2025 - funguje zobrazeni rolí
 - funguje zobrazeni rolí přiřazených ke skupině, dalším cílem je zprovoznit možnost upravování rolí
 
+18. 5. 2025 - tlacitko odebrat v tabulce vpravo funguje
+- po pokynech jsme přidali do tabulky tlačítko pro odebírání membershipů
+
+18. 5. 2025 - komponentu GroupLargeCard jsme rozdelili na mensi komponenty
+   
+20. 5. 2025 - funguje pridavani uzivatelu pomoci vyhledani jmena s naseptavanim
+- spolupracovali jsme se spolužákem Ondřejem Hanákem, protože potřeboval pro svůj projekt implementovat stejnou funkcionalitu
+
+24. 5. 2025 - polorozbita data generator page
+- vytvořili jsme základ stránky pro generování dat, ale zatím správně nefunguje dotaz na GroupTypes a mutace
+
+25. 5. 2025 - data generator page funguje, po vytvoreni se zobrazi json o nove skupine
+- funkční zprovoznění stránky pro generování dat
+
+25. 5. 2025 - kompletne funguje read only
+- na základě writtable stránky jsme vytvořili read only stránku. používá stejné komponenty jako writtable stránka, ale jsou odstraněna tlačítka a vstupy
+
+26. 5. 2025 - je pridano nacteni grouptypes, ale nefunguje. pouzivame fallback data
+- přidali jsme dotaz groupTypePageQuery a pokusili se ho zprovoznit, ale to se ještě nepodařilo, takže prozatím stránka používa fallback data, natvrdo napsaná id groupTypes
+
+26. 5. 2025 - rozdeleno data generator page na mensi komponenty a rozdeleni do slozek
+- původně jsme měli všechno v DataGeneratorPage, ale vypadalo to jako spaghetti code. Rozdělili jsme tuto komponentu na více komponent podle logických celků.
 
 # Definice problémů k vyřešení
 - vytvořit základní stránku studijní skupiny a napojit ji na router a backend
@@ -86,6 +108,20 @@
 ## zprovoznění změny názvu studijní skupiny
 - zprovoznění změny názvu nebyl žádný problém, využili jsme GroupUpdateAsyncAction
 
+## rozdělit GroupLargeCard na více komponent
+- pro zlepšení přehlednosti jsme rozdělili logické celky do Queries a do Components, které importujeme z těchto složek
+
+## přidávání uživatelů na základě vyhledání jména s našeptáváním
+- na této funkcionalitě jsme spolupracivali se spolužákem Ondřejem Hanákem
+
+## zprovoznění data generator page
+- opět jsme jako první museli v GraphiQL správně napsat dotaz a mutaci
+- dotaz na GroupTypes zatím nefunguje, takže používáme fallback data
+
+## zprovoznění ReadOnlyPage
+- na základě writtable stránky jsme vytvořili ReadOnlyPage
+
+  
 ___________________________________________
 
 TESTOVACI SKUPINA
