@@ -45,7 +45,7 @@ import { createFetchQuery } from "./createFetchQuery";
  * // Dispatch the action with query variables
  * dispatch(fetchAction({ id: "12345" }));
  */
-export const updateItemsFromGraphQLResult_ = (jsonResult) => (dispatch, /*getState */) => (next) => {
+export const updateItemsFromGraphQLResult_01 = (jsonResult) => (dispatch, /*getState */) => (next) => {
     const data = jsonResult?.data;
 
     if (!data) {
@@ -118,7 +118,7 @@ export const updateItemsFromGraphQLResult_ = (jsonResult) => (dispatch, /*getSta
  * const getUserAndPostsAction = createAsyncGraphQLAction2(query, updateItemsFromGraphQLResult2, getPostsAction);
  * dispatch(getUserAndPostsAction({ id: "12345" }));
  */
-export const updateItemsFromGraphQLResult = (jsonData) => async (dispatch, getState, next = (jsonResult) => jsonResult) => {
+export const updateItemsFromGraphQLResult_02 = (jsonData) => async (dispatch, getState, next = (jsonResult) => jsonResult) => {
     const data = jsonData?.data;
 
     if (!data) {
@@ -155,3 +155,116 @@ export const updateItemsFromGraphQLResult = (jsonData) => async (dispatch, getSt
 };
 
 
+/**Add commentMore actions
+ * Redux-thunk kompatibilní asynchronní akce:
+ * Rekurzivně dispatchuje item_update pro každý objekt obsahující __typename.
+ * Lze omezit maximální hloubku rekurze (root je depth 0).
+ *
+ * @param {object} obj - Objekt nebo pole s možnými embedded GraphQL entitami.
+ * @param {number} [maxDepth=Infinity] - Maximální hloubka rekurze (0 = jen root).
+ * @returns {function} Async thunk action pro Redux.
+ *
+ * @example
+ * dispatch(recursiveUpdateFromGraphQL(obj, 3)); // projde do 3 úrovní vnoření
+ */
+export function recursiveUpdateFromGraphQL(obj, maxDepth = Infinity) {
+    return async function thunk(dispatch, getState) {
+        function traverse(o, depth) {
+            if (depth > maxDepth) return;
+            if (o && typeof o === 'object') {
+                if ('__typename' in o) {
+                    dispatch(ItemActions.item_update(o));
+                }
+                Object.values(o).forEach(value => {
+                    if (value && typeof value === 'object') {
+                        if (Array.isArray(value)) {
+                            value.forEach(el => traverse(el, depth + 1));
+                        } else {
+                            traverse(value, depth + 1);
+                        }
+                    }
+                });
+            }
+        }
+        traverse(obj, 0);
+    }
+}
+
+
+/**
+ * Processes a GraphQL result and dispatches Redux actions for every nested object with `__typename`.
+ * Supports both parameterized (maxDepth) and direct (jsonData) usage.
+ *
+ * Tento middleware lze použít v řetězení asynchronních Redux-thunk akcí (například v createAsyncGraphQLAction2).
+ * Recursivně traversuje každý objekt nebo pole ve výsledku a dispatchuje `item_update` pro všechny objekty,
+ * které obsahují klíč `__typename`, až do zadané hloubky (maxDepth).
+ *
+ * @param {number|object} [maxDepthOrJson=Infinity] - Pokud je zadáno číslo, určuje maximální hloubku rekurze
+ *   při hledání embedded objektů (0 = pouze kořenový objekt, 1 = kořen + přímí potomci, atd., Infinity = neomezeně).
+ *   Pokud je místo čísla předán přímo objekt `jsonData`, middleware jej zpracuje bez nastavení hloubky (implicitně Infinity).
+ *
+ * @returns {Function} - Middleware funkce, kterou lze použít v řetězci Redux-thunk akcí nebo volat přímo:
+ *   - Pokud voláte s číslem:  updateItemsFromGraphQLResultExt(2)(jsonData)(dispatch, getState, next)
+ *   - Pokud voláte přímo s jsonData: updateItemsFromGraphQLResultExt(jsonData)(dispatch, getState, next)
+ *
+ * @example
+ * // Example 1: Volání s určením hloubky rekurze
+ * const mw = updateItemsFromGraphQLResultExt(2)(queryResult);
+ * mw(dispatch, getState, (jsonResult) => console.log("Next:", jsonResult));
+ *
+ * // Example 2: Přímé volání s jsonData (nekonečná hloubka)
+ * updateItemsFromGraphQLResultExt(queryResult)(dispatch, getState, next);
+ *
+ * // Example 3: Použití v action chainu s createAsyncGraphQLAction2
+ * const getAction = createAsyncGraphQLAction2(
+ *     query,
+ *     updateItemsFromGraphQLResultExt(3), // maxDepth = 3
+ *     dalšíMiddleware,
+ * );
+ * dispatch(getAction({ id: "abc" }));
+ */
+export const updateItemsFromGraphQLResult = (maxDepth_=Infinity) => {
+    let maxDepth = maxDepth_
+    const result = (jsonData) => async (dispatch, getState, next = (jsonResult) => jsonResult) => {
+        const data = jsonData?.data;
+
+        if (!data) {
+            console.warn("GQLQueryAfterFetch: No data found in jsonResult", jsonData);
+            return next(jsonData);
+        }
+
+        let result = data?.result;
+
+        // Check if `data` has exactly one key and use it as the result
+        if (!result && Object.keys(data).length === 1) {
+            const singleKey = Object.keys(data)[0];
+            result = data[singleKey];
+        }
+
+        if (result) {
+            if (Array.isArray(result)) {
+                result.forEach((item) => dispatch(recursiveUpdateFromGraphQL(item, maxDepth)))
+            } else {
+                // dispatch(ItemActions.item_update(result));
+                dispatch(recursiveUpdateFromGraphQL(result, maxDepth));
+            }
+        } else {
+            if (Object.keys(data).length === 1) {
+                console.warn("GQLQueryAfterFetch: result is null", jsonData);
+            } else {
+                console.warn("GQLQueryAfterFetch: No valid result found in data", jsonData);
+            }
+        }
+
+        // Call the next middleware with the processed data
+        return next(jsonData);
+    };
+
+    if (typeof maxDepth_ === 'object' && maxDepth_ !== null) {
+        // Bez parametrů, voláno rovnou: updateItemsFromGraphQLResultExt(jsonData)
+        maxDepth = 1
+        return result(maxDepth_)
+    } else {
+        return result;
+    }    
+}

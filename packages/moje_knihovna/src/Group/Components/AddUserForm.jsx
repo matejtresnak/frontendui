@@ -51,7 +51,7 @@ export const AddUserForm = ({ group }) => {
   const {
     error: insertError,
     loading: insertLoading,
-    fetch: insertUser,
+    fetch: insertMembership,
   } = useAsyncAction(
     GroupMembershipInsertAsyncAction,
     {},
@@ -66,7 +66,7 @@ export const AddUserForm = ({ group }) => {
         userId: user.id,
       };
 
-      const result = await insertUser(params);
+      const result = await insertMembership(params);
 
       if (result && !result.failed) {
         alert("Uživatel byl úspěšně přidán do skupiny");
