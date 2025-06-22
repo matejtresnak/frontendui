@@ -1,5 +1,5 @@
 {
-  "name": "@matejtresnak/provizorni_nazev",
+  "name": "matejtresnak_prvni_balice",
   "private": true,
   "version": "0.5.0",
   "type": "module",
@@ -18,7 +18,6 @@
     "@hrbolek/uoisfrontend-ug": "*",
     "@hrbolek/uoisfrontend-ug2": "*",
     "@matejtresnak/provizorni_nazev_1": "*",
-
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.3",
     "react": "^18.3.1",
@@ -38,5 +37,20 @@
     "globals": "^15.12.0",
     "vite": "^6.0.1",
     "vite-plugin-pwa": "^0.21.1"
-  }
+  },
+  "description": "tohle je muj prvni balicek",
+  "main": "^9.15.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matejtresnak/frontendui.git#funkcni"
+  },
+  "keywords": [
+    "ahojky"
+  ],
+  "author": "matejtresnak",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/matejtresnak/frontendui/issues"
+  },
+  "homepage": "https://github.com/matejtresnak/frontendui/tree/funkcni#readme"
 }
