@@ -1,19 +1,32 @@
-// GroupNameForm.jsx - Komponenta pro změnu názvu skupiny
+// GroupNameForm.jsx - Component for changing group name
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import { Input, ErrorHandler, LoadingSpinner } from "@hrbolek/uoisfrontend-shared";
 import { useAsyncAction } from "@hrbolek/uoisfrontend-gql-shared";
 import { GroupUpdateAsyncAction } from "C:/Users/mates/frontendui/packages/moje_knihovna/src/Group/Queries/GroupUpdateAsyncAction";
 
+/**
+ * GroupNameForm component for updating group name
+ * @param {Object} props - Component props
+ * @param {Object} props.group - Group object containing id, name, and lastchange
+ * @returns {JSX.Element} GroupNameForm component
+ */
 export const GroupNameForm = ({ group }) => {
   const [newGroupName, setNewGroupName] = useState("");
 
+  /**
+   * Async action for updating group
+   */
   const {
     error: updateError,
     loading: updateLoading,
     fetch: updateGroup,
   } = useAsyncAction(GroupUpdateAsyncAction, {}, { deferred: true });
 
+  /**
+   * Handles group name change submission
+   * Validates input and updates group name
+   */
   const handleGroupNameChange = async () => {
     if (!newGroupName) {
       alert("Zadejte nový název skupiny.");

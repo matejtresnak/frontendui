@@ -3,6 +3,16 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { LoadingSpinner } from "@hrbolek/uoisfrontend-shared";
 
+/**
+ * GroupForm component for creating new groups
+ * @param {Object} props - Component props
+ * @param {Array} props.groupTypes - Array of available group types
+ * @param {Function} props.onSubmit - Callback function called when form is submitted
+ * @param {boolean} props.loading - Loading state for form submission
+ * @param {boolean} props.loadingGroupTypes - Loading state for group types
+ * @param {boolean} props.usingFallback - Whether fallback data is being used
+ * @returns {JSX.Element} GroupForm component
+ */
 const GroupForm = ({ 
   groupTypes, 
   onSubmit, 
@@ -13,12 +23,19 @@ const GroupForm = ({
   const [name, setName] = useState("");
   const [groupTypeId, setGroupTypeId] = useState("");
 
+  /**
+   * Effect to set default group type when group types are loaded
+   */
   useEffect(() => {
     if (groupTypes.length > 0 && !groupTypeId) {
       setGroupTypeId(groupTypes[0].id);
     }
   }, [groupTypes, groupTypeId]);
 
+  /**
+   * Handles form submission
+   * Validates input and calls onSubmit callback
+   */
   const handleSubmit = () => {
     if (!name || !groupTypeId) {
       alert("Zadejte název skupiny a vyberte typ.");

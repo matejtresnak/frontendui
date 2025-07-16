@@ -1,6 +1,13 @@
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
 
+/**
+ * GroupSuccessAlert component displays success message after group creation
+ * @param {Object} props - Component props
+ * @param {Object|null} props.createdGroup - The created group object or null
+ * @param {Function} props.onCreateNew - Callback function to create a new group
+ * @returns {JSX.Element|null} Success alert component or null if no group created
+ */
 const GroupSuccessAlert = ({ createdGroup, onCreateNew }) => {
   if (!createdGroup) return null;
 

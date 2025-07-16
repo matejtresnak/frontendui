@@ -7,11 +7,19 @@ import GroupSuccessAlert from "../Components/GroupSuccessAlert";
 import { groupTypes } from "../Components/constants";
 import { groupTypePageQuery, groupInsertQuery } from "../Queries/Queries";
 
+/**
+ * DataGeneratorPage component - Main page for creating new groups
+ * Manages group creation workflow including loading group types and handling form submission
+ * @returns {JSX.Element} DataGeneratorPage component
+ */
 export const DataGeneratorPage = () => {
   const [createdGroup, setCreatedGroup] = useState(null);
   const [loadedGroupTypes, setLoadedGroupTypes] = useState(groupTypes);
   const [usingFallback, setUsingFallback] = useState(true);
 
+  /**
+   * Async action for loading group types from GraphQL
+   */
   const {
     fetch: loadGroupTypes,
     loading: loadingGroupTypes,
@@ -30,6 +38,9 @@ export const DataGeneratorPage = () => {
     { deferred: true }
   );
 
+  /**
+   * Async action for inserting new group via GraphQL
+   */
   const {
     fetch: insertGroup,
     loading: inserting,
@@ -61,19 +72,28 @@ export const DataGeneratorPage = () => {
     { deferred: true }
   );
 
+  /**
+   * Effect to load group types on component mount
+   */
   useEffect(() => {
     loadGroupTypes();
   }, []);
 
+  /**
+   * Handles form submission for creating new group
+   * @param {Object} groupData - Group data from form
+   * @param {string} groupData.name - Group name
+   * @param {string} groupData.groupTypeId - Group type ID
+   */
   const handleSubmit = async ({ name, groupTypeId }) => {
     console.log("handleSubmit spuštěn");
     console.log("Odesílám data:", { name, grouptypeId: groupTypeId });
     
-    // Vymazat předchozí výsledek
+    // Clear previous result
     setCreatedGroup(null);
     
     try {
-      // Volání s GraphQL variables objektem
+      // Call with GraphQL variables object
       const result = await insertGroup({ 
         name: name, 
         grouptypeId: groupTypeId 
@@ -97,6 +117,9 @@ export const DataGeneratorPage = () => {
     }
   };
 
+  /**
+   * Handles creating new group by clearing the current created group
+   */
   const handleCreateNew = () => {
     setCreatedGroup(null);
   };

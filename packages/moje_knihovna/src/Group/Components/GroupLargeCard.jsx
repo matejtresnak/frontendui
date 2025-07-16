@@ -1,4 +1,4 @@
-// GroupLargeCard.jsx - Hlavní komponenta
+// GroupLargeCard.jsx - Main component
 import Row from "react-bootstrap/Row";
 import { LeftColumn, MiddleColumn } from "@hrbolek/uoisfrontend-shared";
 import { GroupCardCapsule } from "./GroupCardCapsule";
@@ -8,6 +8,14 @@ import { AddUserForm } from "./AddUserForm";
 import { RemoveUserForm } from "./RemoveUserForm";
 import { GroupNameForm } from "./GroupNameForm";
 
+/**
+ * GroupLargeCard component - Main component for displaying detailed group information
+ * Renders a comprehensive view of a group with member management capabilities
+ * @param {Object} props - Component props
+ * @param {Object} props.group - Group object containing all group data
+ * @param {React.ReactNode} props.children - Additional content to render
+ * @returns {JSX.Element} GroupLargeCard component
+ */
 export const GroupLargeCard = ({ group, children }) => {
   return (
     <GroupCardCapsule group={group}>
@@ -16,19 +24,19 @@ export const GroupLargeCard = ({ group, children }) => {
           <GroupMediumCard group={group} />
         </LeftColumn>
         <MiddleColumn>
-          {/* Seznam členů skupiny */}
+          {/* Member list */}
           <MembersList group={group} />
 
-          {/* Formulář pro přidání uživatele */}
+          {/* Add user form */}
           <AddUserForm group={group} />
           
-          {/* Formulář pro odebrání uživatele */}
+          {/* Remove user form */}
           <RemoveUserForm group={group} />
 
-          {/* Formulář pro změnu názvu skupiny */}
+          {/* Group name form */}
           <GroupNameForm group={group} />
 
-          {/* Další obsah */}
+          {/* Additional content */}
           <pre>{JSON.stringify(group, null, 2)}</pre>
           {children}
         </MiddleColumn>

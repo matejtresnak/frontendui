@@ -1,17 +1,32 @@
-// MembersList.jsx - Komponenta pro zobrazení seznamu členů skupiny
+// MembersList.jsx - Component for displaying group members list
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import { ErrorHandler, LoadingSpinner } from "@hrbolek/uoisfrontend-shared";
 import { useAsyncAction } from "@hrbolek/uoisfrontend-gql-shared";
 import { GroupMembershipDeleteAsyncAction } from "C:/Users/mates/frontendui/packages/moje_knihovna/src/Group/Queries/GroupMembershipDeleteAsyncAction";
 
+/**
+ * MembersList component for displaying and managing group members
+ * @param {Object} props - Component props
+ * @param {Object} props.group - Group object containing memberships array
+ * @returns {JSX.Element} MembersList component
+ */
 export const MembersList = ({ group }) => {
+  /**
+   * Async action for deleting group membership
+   */
   const {
     error: deleteError,
     loading: deleteLoading,
     fetch: deleteMembership,
   } = useAsyncAction(GroupMembershipDeleteAsyncAction, {}, { deferred: true });
 
+  /**
+   * Handles removing a user from the group
+   * @param {string} membershipId - ID of the membership to delete
+   * @param {string} membershipLastchange - Lastchange timestamp of the membership
+   * @param {string} userName - Name of the user to be removed
+   */
   const handleRemoveUserFromGroup = async (membershipId, membershipLastchange, userName) => {
     if (!membershipId) {
       alert("Nebyl vybrán žádný uživatel k odebrání.");
@@ -30,7 +45,7 @@ export const MembersList = ({ group }) => {
       
       const result = await deleteMembership(params);
       
-      // Zjednodušená kontrola odpovědi - null znamená úspěch
+      // Simplified response check - null means success
       if (result && result.data && result.data.membershipDelete === null) {
         alert("Uživatel byl úspěšně odebrán ze skupiny.");
         window.location.reload();

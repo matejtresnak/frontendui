@@ -1,4 +1,4 @@
-// RemoveUserForm.jsx - Komponenta pro odebrání uživatele pomocí rozbalovacího seznamu
+// RemoveUserForm.jsx - Component for removing user using dropdown list
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -6,22 +6,35 @@ import { ErrorHandler, LoadingSpinner } from "@hrbolek/uoisfrontend-shared";
 import { useAsyncAction } from "@hrbolek/uoisfrontend-gql-shared";
 import { GroupMembershipDeleteAsyncAction } from "C:/Users/mates/frontendui/packages/moje_knihovna/src/Group/Queries/GroupMembershipDeleteAsyncAction";
 
+/**
+ * RemoveUserForm component for removing users from group using dropdown selection
+ * @param {Object} props - Component props
+ * @param {Object} props.group - Group object containing memberships array
+ * @returns {JSX.Element} RemoveUserForm component
+ */
 export const RemoveUserForm = ({ group }) => {
   const [selectedMembership, setSelectedMembership] = useState("");
 
+  /**
+   * Async action for deleting group membership
+   */
   const {
     error: deleteError,
     loading: deleteLoading,
     fetch: deleteMembership,
   } = useAsyncAction(GroupMembershipDeleteAsyncAction, {}, { deferred: true });
 
+  /**
+   * Handles removing selected user from group
+   * Validates selection, confirms action, and executes deletion
+   */
   const handleRemoveSelectedUser = async () => {
     if (!selectedMembership) {
       alert("Prosím vyberte uživatele, kterého chcete odebrat ze skupiny.");
       return;
     }
     
-    // Najít vybrané členství podle ID
+    // Find selected membership by ID
     const membershipToDelete = group.memberships.find(m => m.id === selectedMembership);
     
     if (!membershipToDelete) {
@@ -43,7 +56,7 @@ export const RemoveUserForm = ({ group }) => {
       
       const result = await deleteMembership(params);
       
-      // Zjednodušená kontrola odpovědi - null znamená úspěch
+      // Simplified response check - null means success
       if (result && result.data && result.data.membershipDelete === null) {
         alert("Uživatel byl úspěšně odebrán ze skupiny.");
         setSelectedMembership("");

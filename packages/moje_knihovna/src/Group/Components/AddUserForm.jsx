@@ -1,11 +1,14 @@
-// AddUserForm.jsx - Komponenta pro přidání uživatele do skupiny
+// AddUserForm.jsx - Component for adding user to group
 import { useState, useRef } from "react";
 import Button from "react-bootstrap/Button";
 import { ErrorHandler, LoadingSpinner, CreateDelayer } from "@hrbolek/uoisfrontend-shared";
 import { useAsyncAction, createAsyncGraphQLAction } from "@hrbolek/uoisfrontend-gql-shared";
 import { GroupMembershipInsertAsyncAction } from "C:/Users/mates/frontendui/packages/moje_knihovna/src/Group/Queries/GroupMembershipInsertAsyncAction";
 
-// GraphQL dotaz pro vyhledávání uživatelů podle vzoru
+/**
+ * GraphQL query for searching users by pattern
+ * @type {Function}
+ */
 const QueryUserAsyncAction = createAsyncGraphQLAction(`query QueryUser($pattern: String!) {
   userPage(where: {name: {_ilike: $pattern}}) {
     __typename
@@ -16,8 +19,18 @@ const QueryUserAsyncAction = createAsyncGraphQLAction(`query QueryUser($pattern:
   }
 }`);
 
-// Komponenta pro zobrazení jednoho uživatele ve výsledcích vyhledávání
+/**
+ * LocalUser component for displaying a single user in search results
+ * @param {Object} props - Component props
+ * @param {Object} props.user - User object with id, name, surname, and fullname
+ * @param {Function} props.onSelect - Callback function when user is selected
+ * @returns {JSX.Element} LocalUser component
+ */
 const LocalUser = ({ user, onSelect }) => {
+  /**
+   * Handles click event on user selection
+   * @param {Event} e - Click event
+   */
   const onClick = (e) => {
     e.preventDefault();
     console.log("LocalUser.onClick", user.id, user.name);
@@ -31,12 +44,20 @@ const LocalUser = ({ user, onSelect }) => {
   );
 };
 
+/**
+ * AddUserForm component for adding existing users to a group
+ * @param {Object} props - Component props
+ * @param {Object} props.group - Group object to add users to
+ * @returns {JSX.Element} AddUserForm component
+ */
 export const AddUserForm = ({ group }) => {
   const inputRef = useRef(null);
   const [users, setUsers] = useState([]);
   const [delayer, setDelayer] = useState(() => CreateDelayer(500));
 
-  // Action pro vyhledávání uživatelů
+  /**
+   * Async action for searching users
+   */
   const {
     loading: searchLoading,
     error: searchError,
@@ -47,7 +68,9 @@ export const AddUserForm = ({ group }) => {
     { deferred: true }
   );
 
-  // Action pro přidání uživatele do skupiny
+  /**
+   * Async action for adding user to group
+   */
   const {
     error: insertError,
     loading: insertLoading,
@@ -58,7 +81,10 @@ export const AddUserForm = ({ group }) => {
     { deferred: true }
   );
 
-  // Funkce volaná při výběru uživatele z výsledků vyhledávání
+  /**
+   * Handles user selection from search results
+   * @param {Object} user - Selected user object
+   */
   const onSelect = async (user) => {
     try {
       const params = {
@@ -81,7 +107,10 @@ export const AddUserForm = ({ group }) => {
     }
   };
 
-  // Funkce pro zpracování změny v inputu
+  /**
+   * Handles input change for user search
+   * @param {Event} e - Input change event
+   */
   const onChange = (e) => {
     const data = e.target.value;
     if (data.length > 2) {
