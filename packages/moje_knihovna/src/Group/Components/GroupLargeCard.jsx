@@ -26,12 +26,12 @@ export const GroupLargeCard = ({ group, children }) => {
         <MiddleColumn>
           {/* Member list */}
           <MembersList group={group} />
-
-          {/* Add user form */}
-          <AddUserForm group={group} />
           
           {/* Remove user form */}
           <RemoveUserForm group={group} />
+
+          {/* Add user form */}
+          <AddUserForm group={group} />
 
           {/* Group name form */}
           <GroupNameForm group={group} />
