@@ -1,0 +1,8138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Global</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Global</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2></h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+        
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id="AddUserForm"><span class="type-signature">(constant) </span>AddUserForm<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>AddUserForm component for adding existing users to a group</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Group_Components_AddUserForm.jsx.html">Group/Components/AddUserForm.jsx</a>, <a href="Group_Components_AddUserForm.jsx.html#line53">line 53</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="DataGeneratorPage"><span class="type-signature">(constant) </span>DataGeneratorPage<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>DataGeneratorPage component - Main page for creating new groups
+Manages group creation workflow including loading group types and handling form submission</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Data_Pages_DataGeneratorPage.jsx.html">Data/Pages/DataGeneratorPage.jsx</a>, <a href="Data_Pages_DataGeneratorPage.jsx.html#line15">line 15</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="GroupCUDButton"><span class="type-signature">(constant) </span>GroupCUDButton<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>GroupCUDButton Component</p>
+<p>A higher-order component that dynamically renders one of the following components
+based on the <code>operation</code> prop:</p>
+<ul>
+<li><code>InsertGroupButton</code> for creating a new item (operation &quot;C&quot;)</li>
+<li><code>UpdateGroupButton</code> for updating an existing item (operation &quot;U&quot;)</li>
+<li><code>DeleteGroupButton</code> for deleting an existing item (operation &quot;D&quot;)</li>
+</ul>
+<p>This component validates the <code>group</code> prop:</p>
+<ul>
+<li>For &quot;C&quot; (create), <code>group</code> can be any object (no restrictions).</li>
+<li>For &quot;U&quot; (update) and &quot;D&quot; (delete), <code>group</code> must include an <code>id</code> key.</li>
+</ul>
+<p>If the <code>operation</code> prop is invalid or required conditions for <code>group</code> are not met,
+an <code>ErrorHandler</code> component is rendered with an appropriate error message.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Group_Components_GroupCUDButton.jsx.html">Group/Components/GroupCUDButton.jsx</a>, <a href="Group_Components_GroupCUDButton.jsx.html#line71">line 71</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example Usageconst Example = () => {  const handleDone = (data) => console.log("Operation completed:", data);  return (    &lt;>      &lt;GroupCUDButton        operation="C"        group={{ name: "New Item", name_en: "New Item EN" }}        onDone={handleDone}      >        Insert      &lt;/GroupCUDButton>      &lt;GroupCUDButton        operation="U"        group={{ id: "123", name: "Updated Item", name_en: "Updated Item EN" }}        onDone={handleDone}      >        Update      &lt;/GroupCUDButton>      &lt;GroupCUDButton        operation="D"        group={{ id: "123" }}        onDone={handleDone}      >        Delete      &lt;/GroupCUDButton>    &lt;/>  );};</code></pre>
+
+
+
+        
+            
+<h4 class="name" id="GroupCardCapsule"><span class="type-signature">(constant) </span>GroupCardCapsule<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>A specialized card component that displays an <code>GroupLink</code> as its title and encapsulates additional content.</p>
+<p>This component extends the <code>CardCapsule</code> component by using a combination of a <code>PersonFill</code> icon and
+an <code>GroupLink</code> component in the card's header. The <code>children</code> prop is used to render any content
+inside the card body. It is designed for use with entities represented by the <code>group</code> object.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Group_Components_GroupCardCapsule.jsx.html">Group/Components/GroupCardCapsule.jsx</a>, <a href="Group_Components_GroupCardCapsule.jsx.html#line32">line 32</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example usage:import { GroupCardCapsule } from './GroupCardCapsule';import { Button } from 'react-bootstrap';const groupEntity = { id: 123, name: "Example Entity" };&lt;GroupCardCapsule group={groupEntity}>  &lt;Button variant="primary">Click Me&lt;/Button>&lt;/GroupCardCapsule></code></pre>
+
+
+
+        
+            
+<h4 class="name" id="GroupChildren"><span class="type-signature">(constant) </span>GroupChildren<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>GroupChildren Component</p>
+<p>A utility React component that wraps its children with the <code>ChildWrapper</code> component,
+passing down an <code>group</code> entity along with other props to all child elements.
+This component is useful for injecting a common <code>group</code> entity into multiple children
+while preserving their existing functionality.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Group_Components_GroupChildren.jsx.html">Group/Components/GroupChildren.jsx</a>, <a href="Group_Components_GroupChildren.jsx.html#line30">line 30</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example usage:const groupEntity = { id: 1, message: "No data available" };&lt;GroupChildren group={groupEntity}>    &lt;CustomMessage />    &lt;CustomIcon />&lt;/GroupChildren>// Result: Both &lt;CustomMessage /> and &lt;CustomIcon /> receive the 'group' prop with the specified entity.</code></pre>
+
+
+
+        
+            
+<h4 class="name" id="GroupLargeCard"><span class="type-signature">(constant) </span>GroupLargeCard<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>GroupLargeCard component - Main component for displaying detailed group information
+Renders a comprehensive view of a group with member management capabilities</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Group_Components_GroupLargeCard.jsx.html">Group/Components/GroupLargeCard.jsx</a>, <a href="Group_Components_GroupLargeCard.jsx.html#line19">line 19</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="GroupMediumCard"><span class="type-signature">(constant) </span>GroupMediumCard<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>A card component that displays detailed content for an group entity.</p>
+<p>This component combines <code>GroupCardCapsule</code> and <code>GroupMediumContent</code> to create a card layout
+with a title and medium-level content. The title includes a <code>PersonFill</code> icon and a link to
+the group entity's details, while the body displays serialized details of the entity along
+with any additional children passed to the component.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Group_Components_GroupMediumCard.jsx.html">Group/Components/GroupMediumCard.jsx</a>, <a href="Group_Components_GroupMediumCard.jsx.html#line31">line 31</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example usage:const groupEntity = { id: 123, name: "Sample Entity" };&lt;GroupMediumCard group={groupEntity}>  &lt;p>Additional details or actions for the entity.&lt;/p>&lt;/GroupMediumCard></code></pre>
+
+
+
+        
+            
+<h4 class="name" id="GroupMediumContent"><span class="type-signature">(constant) </span>GroupMediumContent<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>A component that displays medium-level content for a group entity.</p>
+<p>This component renders information about a group entity including its name,
+master group (if any), and roles with associated users. It fetches role data
+using the GroupRolesReadAsyncAction.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Group_Components_GroupMediumContent.jsx.html">Group/Components/GroupMediumContent.jsx</a>, <a href="Group_Components_GroupMediumContent.jsx.html#line31">line 31</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example usage:const groupEntity = { id: "0d0810f7-b61b-43c2-a746-26800052b7d7", name: "Sample Group" };&lt;GroupMediumContent group={groupEntity}>  &lt;p>Additional information about the group.&lt;/p>&lt;/GroupMediumContent></code></pre>
+
+
+
+        
+            
+<h4 class="name" id="GroupMediumEditableContent"><span class="type-signature">(constant) </span>GroupMediumEditableContent<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>A component that displays medium-level content for an group entity.</p>
+<p>This component renders a label &quot;GroupMediumContent&quot; followed by a serialized representation of the <code>group</code> object
+and any additional child content. It is designed to handle and display information about an group entity object.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Group_Components_GroupMediumEditableContent.jsx.html">Group/Components/GroupMediumEditableContent.jsx</a>, <a href="Group_Components_GroupMediumEditableContent.jsx.html#line26">line 26</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example usage:const groupEntity = { id: 123, name: "Sample Entity" };&lt;GroupMediumContent group={groupEntity}>  &lt;p>Additional information about the entity.&lt;/p>&lt;/GroupMediumContent></code></pre>
+
+
+
+        
+            
+<h4 class="name" id="GroupNameForm"><span class="type-signature">(constant) </span>GroupNameForm<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>GroupNameForm component for updating group name</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Group_Components_GroupNameForm.jsx.html">Group/Components/GroupNameForm.jsx</a>, <a href="Group_Components_GroupNameForm.jsx.html#line14">line 14</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="GroupPage"><span class="type-signature">(constant) </span>GroupPage<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>A page component for displaying lazy-loaded content of an group entity.</p>
+<p>This component extracts the <code>id</code> parameter from the route using <code>useParams</code>,
+constructs an <code>group</code> object, and passes it to the <code>GroupPageContentLazy</code> component.
+The <code>GroupPageContentLazy</code> component handles the lazy-loading and rendering of the entity's content.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Group_Pages_GroupPage.jsx.html">Group/Pages/GroupPage.jsx</a>, <a href="Group_Pages_GroupPage.jsx.html#line101">line 101</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example route setup:&lt;Route path="/group/:id" element={&lt;GroupPage />} />// Navigating to "/group/12345" will render the page for the group entity with ID 12345.</code></pre>
+
+
+
+        
+            
+<h4 class="name" id="GroupPageContentLazy"><span class="type-signature">(constant) </span>GroupPageContentLazy<span class="type-signature"> :React.Component</span></h4>
+
+
+
+
+<div class="description">
+    <p>A lazy-loading component for displaying content of an group entity.</p>
+<p>This component is created using <code>createLazyComponent</code> and wraps <code>GroupPageContent</code> to provide
+automatic data fetching for the <code>group</code> entity. It uses the <code>GroupReadAsyncAction</code> to fetch
+the entity data and dynamically injects it into the wrapped component as the <code>group</code> prop.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">React.Component</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Group_Pages_GroupPage.jsx.html">Group/Pages/GroupPage.jsx</a>, <a href="Group_Pages_GroupPage.jsx.html#line61">line 61</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example usage:const groupId = "12345";&lt;GroupPageContentLazy group={groupId} /></code></pre>
+
+
+
+        
+            
+<h4 class="name" id="GroupPageContentLazy"><span class="type-signature">(constant) </span>GroupPageContentLazy<span class="type-signature"> :React.Component</span></h4>
+
+
+
+
+<div class="description">
+    <p>A lazy-loading component for displaying content of an group entity.</p>
+<p>This component is created using <code>createLazyComponent</code> and wraps <code>GroupPageContent</code> to provide
+automatic data fetching for the <code>group</code> entity. It uses the <code>GroupReadAsyncAction</code> to fetch
+the entity data and dynamically injects it into the wrapped component as the <code>group</code> prop.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">React.Component</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Readonly_Pages_ReadOnlyPage.jsx.html">Readonly/Pages/ReadOnlyPage.jsx</a>, <a href="Readonly_Pages_ReadOnlyPage.jsx.html#line62">line 62</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example usage:const groupId = "12345";&lt;GroupPageContentLazy group={groupId} /></code></pre>
+
+
+
+        
+            
+<h4 class="name" id="GroupPageNavbar"><span class="type-signature">(constant) </span>GroupPageNavbar<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>Renders the navigation bar for an Group page.</p>
+<p>This component uses a custom hook, <code>useHash()</code>, to determine the current hash
+and highlights the active segment. It displays a navigation bar (using MyNavbar)
+with several segments (e.g. &quot;history&quot;, &quot;roles&quot;, &quot;graph&quot;), each rendered as a
+TitleNavButton. The segments are hardcoded in this component and only rendered
+if an <code>group</code> object is provided.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Group_Pages_GroupPageNavbar.jsx.html">Group/Pages/GroupPageNavbar.jsx</a>, <a href="Group_Pages_GroupPageNavbar.jsx.html#line69">line 69</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example usage:const group = { id: 123, ... };&lt;GroupPageNavbar group={group} onSearchChange={handleSearchChange} /></code></pre>
+
+
+
+        
+            
+<h4 class="name" id="GroupReadAsyncAction"><span class="type-signature">(constant) </span>GroupReadAsyncAction<span class="type-signature"> :function</span></h4>
+
+
+
+
+<div class="description">
+    <p>An async action for executing a GraphQL query to read group entities.</p>
+<p>This action is created using <code>createAsyncGraphQLAction</code> with a predefined <code>GroupQueryRead</code> query.
+It can be dispatched with query variables to fetch data related to group entities from the GraphQL API.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">function</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Group_Queries_GroupReadAsyncAction.jsx.html">Group/Queries/GroupReadAsyncAction.jsx</a>, <a href="Group_Queries_GroupReadAsyncAction.jsx.html#line42">line 42</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example usage:const queryVariables = { id: "12345" };dispatch(GroupReadAsyncAction(queryVariables))  .then((result) => {    console.log("Fetched data:", result);  })  .catch((error) => {    console.error("Error fetching data:", error);  });</code></pre>
+
+
+
+        
+            
+<h4 class="name" id="GroupRolesReadAsyncAction"><span class="type-signature">(constant) </span>GroupRolesReadAsyncAction<span class="type-signature"> :function</span></h4>
+
+
+
+
+<div class="description">
+    <p>An async action for executing a GraphQL query to read roles associated with a group.</p>
+<p>This action performs a GraphQL query to fetch role and user data related to a specific group.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">function</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Group_Queries_GroupRolesReadAsyncAction.jsx.html">Group/Queries/GroupRolesReadAsyncAction.jsx</a>, <a href="Group_Queries_GroupRolesReadAsyncAction.jsx.html#line49">line 49</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example usage:const queryVariables = { groupId: "0d0810f7-b61b-43c2-a746-26800052b7d7" };dispatch(GroupRolesReadAsyncAction(queryVariables))  .then((result) => {    console.log("Fetched roles data:", result);  })  .catch((error) => {    console.error("Error fetching roles data:", error);  });</code></pre>
+
+
+
+        
+            
+<h4 class="name" id="GroupRolesReadQuery"><span class="type-signature">(constant) </span>GroupRolesReadQuery<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>GraphQL query for role data related to groups</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Group_Queries_GroupRolesReadAsyncAction.jsx.html">Group/Queries/GroupRolesReadAsyncAction.jsx</a>, <a href="Group_Queries_GroupRolesReadAsyncAction.jsx.html#line6">line 6</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="GroupRouterSegment"><span class="type-signature">(constant) </span>GroupRouterSegment<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>A router segment definition for the Group page.</p>
+<p>This object defines a route path and its associated React element.
+The <code>path</code> property is constructed using a base URI stored in <code>GroupURI</code>
+and expects an <code>id</code> parameter. The <code>element</code> property specifies the React
+component to render when the route matches.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>path</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The URL path pattern for the route, e.g., &quot;/group/group/view/:id&quot;.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>element</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">JSX.Element</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The React element (component) to render, in this case, <GroupPage />.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Group_Pages_GroupRouterSegment.jsx.html">Group/Pages/GroupRouterSegment.jsx</a>, <a href="Group_Pages_GroupRouterSegment.jsx.html#line4">line 4</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="GroupScalarAttribute"><span class="type-signature">(constant) </span>GroupScalarAttribute<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>A component for displaying the <code>scalar</code> attribute of an group entity.</p>
+<p>This component checks if the <code>scalar</code> attribute exists on the <code>group</code> object. If <code>scalar</code> is undefined,
+the component returns <code>null</code> and renders nothing. Otherwise, it displays a placeholder message
+and a JSON representation of the <code>scalar</code> attribute.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Group_Scalars_GroupScalarAttribute.jsx.html">Group/Scalars/GroupScalarAttribute.jsx</a>, <a href="Group_Scalars_GroupScalarAttribute.jsx.html#line21">line 21</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example usage:const groupEntity = { scalar: { id: 1, name: "Sample Scalar" } };&lt;GroupScalarAttribute group={groupEntity} /></code></pre>
+
+
+
+        
+            
+<h4 class="name" id="GroupVectorsAttribute"><span class="type-signature">(constant) </span>GroupVectorsAttribute<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>A component for displaying the <code>vectors</code> attribute of an group entity.</p>
+<p>This component checks if the <code>vectors</code> attribute exists on the <code>group</code> object. If <code>vectors</code> is undefined,
+the component returns <code>null</code> and renders nothing. Otherwise, it maps over the <code>vectors</code> array and
+displays a placeholder message and a JSON representation for each item in the <code>vectors</code>.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Group_Vectors_GroupVectorsAttribute.jsx.html">Group/Vectors/GroupVectorsAttribute.jsx</a>, <a href="Group_Vectors_GroupVectorsAttribute.jsx.html#line30">line 30</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example usage:const groupEntity = {   vectors: [    { id: 1, name: "Vector Item 1" },     { id: 2, name: "Vector Item 2" }  ] };&lt;GroupVectorsAttribute group={groupEntity} /></code></pre>
+
+
+
+        
+            
+<h4 class="name" id="MembersList"><span class="type-signature">(constant) </span>MembersList<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>MembersList component for displaying and managing group members</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Group_Components_MembersList.jsx.html">Group/Components/MembersList.jsx</a>, <a href="Group_Components_MembersList.jsx.html#line14">line 14</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="ProgramButton"><span class="type-signature">(constant) </span>ProgramButton<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>ProgramCUDButton Component</p>
+<p>A higher-order component that dynamically renders one of the following components
+based on the <code>operation</code> prop:</p>
+<ul>
+<li><code>InsertProgramButton</code> for creating a new item (operation &quot;C&quot;)</li>
+<li><code>UpdateProgramButton</code> for updating an existing item (operation &quot;U&quot;)</li>
+<li><code>DeleteProgramButton</code> for deleting an existing item (operation &quot;D&quot;)</li>
+</ul>
+<p>This component validates the <code>program</code> prop:</p>
+<ul>
+<li>For &quot;C&quot; (create), <code>program</code> can be any object (no restrictions).</li>
+<li>For &quot;U&quot; (update) and &quot;D&quot; (delete), <code>program</code> must include an <code>id</code> key.</li>
+</ul>
+<p>If the <code>operation</code> prop is invalid or required conditions for <code>program</code> are not met,
+an <code>ErrorHandler</code> component is rendered with an appropriate error message.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Program_Components_ProgramCUDButton.jsx.html">Program/Components/ProgramCUDButton.jsx</a>, <a href="Program_Components_ProgramCUDButton.jsx.html#line70">line 70</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example Usageconst Example = () => {  const handleDone = (data) => console.log("Operation completed:", data);  return (    &lt;>      &lt;ProgramCUDButton        operation="C"        program={{ name: "New Item", name_en: "New Item EN" }}        onDone={handleDone}      >        Insert      &lt;/ProgramCUDButton>      &lt;ProgramCUDButton        operation="U"        program={{ id: "123", name: "Updated Item", name_en: "Updated Item EN" }}        onDone={handleDone}      >        Update      &lt;/ProgramCUDButton>      &lt;ProgramCUDButton        operation="D"        program={{ id: "123" }}        onDone={handleDone}      >        Delete      &lt;/ProgramCUDButton>    &lt;/>  );};</code></pre>
+
+
+
+        
+            
+<h4 class="name" id="ProgramCardCapsule"><span class="type-signature">(constant) </span>ProgramCardCapsule<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>A specialized card component that displays an <code>ProgramLink</code> as its title and encapsulates additional content.</p>
+<p>This component extends the <code>CardCapsule</code> component by using a combination of a <code>PersonFill</code> icon and
+an <code>ProgramLink</code> component in the card's header. The <code>children</code> prop is used to render any content
+inside the card body. It is designed for use with entities represented by the <code>program</code> object.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Program_Components_ProgramCardCapsule.jsx.html">Program/Components/ProgramCardCapsule.jsx</a>, <a href="Program_Components_ProgramCardCapsule.jsx.html#line32">line 32</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example usage:import { ProgramCardCapsule } from './ProgramCardCapsule';import { Button } from 'react-bootstrap';const programEntity = { id: 123, name: "Example Entity" };&lt;ProgramCardCapsule program={programEntity}>  &lt;Button variant="primary">Click Me&lt;/Button>&lt;/ProgramCardCapsule></code></pre>
+
+
+
+        
+            
+<h4 class="name" id="ProgramChildren"><span class="type-signature">(constant) </span>ProgramChildren<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>ProgramChildren Component</p>
+<p>A utility React component that wraps its children with the <code>ChildWrapper</code> component,
+passing down an <code>program</code> entity along with other props to all child elements.
+This component is useful for injecting a common <code>program</code> entity into multiple children
+while preserving their existing functionality.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Program_Components_ProgramChildren.jsx.html">Program/Components/ProgramChildren.jsx</a>, <a href="Program_Components_ProgramChildren.jsx.html#line30">line 30</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example usage:const programEntity = { id: 1, message: "No data available" };&lt;ProgramChildren program={programEntity}>    &lt;CustomMessage />    &lt;CustomIcon />&lt;/ProgramChildren>// Result: Both &lt;CustomMessage /> and &lt;CustomIcon /> receive the 'program' prop with the specified entity.</code></pre>
+
+
+
+        
+            
+<h4 class="name" id="ProgramLargeCard"><span class="type-signature">(constant) </span>ProgramLargeCard<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>A large card component for displaying detailed content and layout for an program entity.</p>
+<p>This component wraps an <code>ProgramCardCapsule</code> with a flexible layout that includes multiple
+columns. It uses a <code>Row</code> layout with a <code>LeftColumn</code> for displaying an <code>ProgramMediumCard</code>
+and a <code>MiddleColumn</code> for rendering additional children.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Program_Components_ProgramLargeCard.jsx.html">Program/Components/ProgramLargeCard.jsx</a>, <a href="Program_Components_ProgramLargeCard.jsx.html#line30">line 30</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example usage:const programEntity = { id: 123, name: "Sample Entity" };&lt;ProgramLargeCard program={programEntity}>  &lt;p>Additional content for the middle column.&lt;/p>&lt;/ProgramLargeCard></code></pre>
+
+
+
+        
+            
+<h4 class="name" id="ProgramMediumCard"><span class="type-signature">(constant) </span>ProgramMediumCard<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>A card component that displays detailed content for an program entity.</p>
+<p>This component combines <code>ProgramCardCapsule</code> and <code>ProgramMediumContent</code> to create a card layout
+with a title and medium-level content. The title includes a <code>PersonFill</code> icon and a link to
+the program entity's details, while the body displays serialized details of the entity along
+with any additional children passed to the component.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Program_Components_ProgramMediumCard.jsx.html">Program/Components/ProgramMediumCard.jsx</a>, <a href="Program_Components_ProgramMediumCard.jsx.html#line31">line 31</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example usage:const programEntity = { id: 123, name: "Sample Entity" };&lt;ProgramMediumCard program={programEntity}>  &lt;p>Additional details or actions for the entity.&lt;/p>&lt;/ProgramMediumCard></code></pre>
+
+
+
+        
+            
+<h4 class="name" id="ProgramMediumContent"><span class="type-signature">(constant) </span>ProgramMediumContent<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>A component that displays medium-level content for an program entity.</p>
+<p>This component renders a label &quot;ProgramMediumContent&quot; followed by a serialized representation of the <code>program</code> object
+and any additional child content. It is designed to handle and display information about an program entity object.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Program_Components_ProgramMediumContent.jsx.html">Program/Components/ProgramMediumContent.jsx</a>, <a href="Program_Components_ProgramMediumContent.jsx.html#line24">line 24</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example usage:const programEntity = { id: 123, name: "Sample Entity" };&lt;ProgramMediumContent program={programEntity}>  &lt;p>Additional information about the entity.&lt;/p>&lt;/ProgramMediumContent></code></pre>
+
+
+
+        
+            
+<h4 class="name" id="ProgramMediumEditableContent"><span class="type-signature">(constant) </span>ProgramMediumEditableContent<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>A component that displays medium-level content for an program entity.</p>
+<p>This component renders a label &quot;ProgramMediumContent&quot; followed by a serialized representation of the <code>program</code> object
+and any additional child content. It is designed to handle and display information about an program entity object.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Program_Components_ProgramMediumEditableContent.jsx.html">Program/Components/ProgramMediumEditableContent.jsx</a>, <a href="Program_Components_ProgramMediumEditableContent.jsx.html#line26">line 26</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example usage:const programEntity = { id: 123, name: "Sample Entity" };&lt;ProgramMediumContent program={programEntity}>  &lt;p>Additional information about the entity.&lt;/p>&lt;/ProgramMediumContent></code></pre>
+
+
+
+        
+            
+<h4 class="name" id="ProgramPage"><span class="type-signature">(constant) </span>ProgramPage<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>A page component for displaying lazy-loaded content of an program entity.</p>
+<p>This component extracts the <code>id</code> parameter from the route using <code>useParams</code>,
+constructs an <code>program</code> object, and passes it to the <code>ProgramPageContentLazy</code> component.
+The <code>ProgramPageContentLazy</code> component handles the lazy-loading and rendering of the entity's content.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Program_Pages_ProgramPage.jsx.html">Program/Pages/ProgramPage.jsx</a>, <a href="Program_Pages_ProgramPage.jsx.html#line101">line 101</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example route setup:&lt;Route path="/program/:id" element={&lt;ProgramPage />} />// Navigating to "/program/12345" will render the page for the program entity with ID 12345.</code></pre>
+
+
+
+        
+            
+<h4 class="name" id="ProgramPageContentLazy"><span class="type-signature">(constant) </span>ProgramPageContentLazy<span class="type-signature"> :React.Component</span></h4>
+
+
+
+
+<div class="description">
+    <p>A lazy-loading component for displaying content of an program entity.</p>
+<p>This component is created using <code>createLazyComponent</code> and wraps <code>ProgramPageContent</code> to provide
+automatic data fetching for the <code>program</code> entity. It uses the <code>ProgramReadAsyncAction</code> to fetch
+the entity data and dynamically injects it into the wrapped component as the <code>program</code> prop.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">React.Component</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Program_Pages_ProgramPage.jsx.html">Program/Pages/ProgramPage.jsx</a>, <a href="Program_Pages_ProgramPage.jsx.html#line61">line 61</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example usage:const programId = "12345";&lt;ProgramPageContentLazy program={programId} /></code></pre>
+
+
+
+        
+            
+<h4 class="name" id="ProgramPageNavbar"><span class="type-signature">(constant) </span>ProgramPageNavbar<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>Renders the navigation bar for an Program page.</p>
+<p>This component uses a custom hook, <code>useHash()</code>, to determine the current hash
+and highlights the active segment. It displays a navigation bar (using MyNavbar)
+with several segments (e.g. &quot;history&quot;, &quot;roles&quot;, &quot;graph&quot;), each rendered as a
+TitleNavButton. The segments are hardcoded in this component and only rendered
+if an <code>program</code> object is provided.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Program_Pages_ProgramPageNavbar.jsx.html">Program/Pages/ProgramPageNavbar.jsx</a>, <a href="Program_Pages_ProgramPageNavbar.jsx.html#line69">line 69</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example usage:const program = { id: 123, ... };&lt;ProgramPageNavbar program={program} onSearchChange={handleSearchChange} /></code></pre>
+
+
+
+        
+            
+<h4 class="name" id="ProgramReadAsyncAction"><span class="type-signature">(constant) </span>ProgramReadAsyncAction<span class="type-signature"> :function</span></h4>
+
+
+
+
+<div class="description">
+    <p>An async action for executing a GraphQL query to read program entities.</p>
+<p>This action is created using <code>createAsyncGraphQLAction</code> with a predefined <code>ProgramQueryRead</code> query.
+It can be dispatched with query variables to fetch data related to program entities from the GraphQL API.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">function</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Program_Queries_ProgramReadAsyncAction.jsx.html">Program/Queries/ProgramReadAsyncAction.jsx</a>, <a href="Program_Queries_ProgramReadAsyncAction.jsx.html#line42">line 42</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example usage:const queryVariables = { id: "12345" };dispatch(ProgramReadAsyncAction(queryVariables))  .then((result) => {    console.log("Fetched data:", result);  })  .catch((error) => {    console.error("Error fetching data:", error);  });</code></pre>
+
+
+
+        
+            
+<h4 class="name" id="ProgramRouterSegment"><span class="type-signature">(constant) </span>ProgramRouterSegment<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>A router segment definition for the Program page.</p>
+<p>This object defines a route path and its associated React element.
+The <code>path</code> property is constructed using a base URI stored in <code>ProgramURI</code>
+and expects an <code>id</code> parameter. The <code>element</code> property specifies the React
+component to render when the route matches.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>path</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The URL path pattern for the route, e.g., &quot;/program/program/view/:id&quot;.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>element</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">JSX.Element</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The React element (component) to render, in this case, <ProgramPage />.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Program_Pages_ProgramRouterSegment.jsx.html">Program/Pages/ProgramRouterSegment.jsx</a>, <a href="Program_Pages_ProgramRouterSegment.jsx.html#line4">line 4</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="ProgramScalarAttribute"><span class="type-signature">(constant) </span>ProgramScalarAttribute<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>A component for displaying the <code>scalar</code> attribute of an program entity.</p>
+<p>This component checks if the <code>scalar</code> attribute exists on the <code>program</code> object. If <code>scalar</code> is undefined,
+the component returns <code>null</code> and renders nothing. Otherwise, it displays a placeholder message
+and a JSON representation of the <code>scalar</code> attribute.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Program_Scalars_ProgramScalarAttribute.jsx.html">Program/Scalars/ProgramScalarAttribute.jsx</a>, <a href="Program_Scalars_ProgramScalarAttribute.jsx.html#line21">line 21</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example usage:const programEntity = { scalar: { id: 1, name: "Sample Scalar" } };&lt;ProgramScalarAttribute program={programEntity} /></code></pre>
+
+
+
+        
+            
+<h4 class="name" id="ProgramVectorsAttribute"><span class="type-signature">(constant) </span>ProgramVectorsAttribute<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>A component for displaying the <code>vectors</code> attribute of an program entity.</p>
+<p>This component checks if the <code>vectors</code> attribute exists on the <code>program</code> object. If <code>vectors</code> is undefined,
+the component returns <code>null</code> and renders nothing. Otherwise, it maps over the <code>vectors</code> array and
+displays a placeholder message and a JSON representation for each item in the <code>vectors</code>.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Program_Vectors_ProgramVectorsAttribute.jsx.html">Program/Vectors/ProgramVectorsAttribute.jsx</a>, <a href="Program_Vectors_ProgramVectorsAttribute.jsx.html#line30">line 30</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example usage:const programEntity = {   vectors: [    { id: 1, name: "Vector Item 1" },     { id: 2, name: "Vector Item 2" }  ] };&lt;ProgramVectorsAttribute program={programEntity} /></code></pre>
+
+
+
+        
+            
+<h4 class="name" id="QueryUserAsyncAction"><span class="type-signature">(constant) </span>QueryUserAsyncAction<span class="type-signature"> :function</span></h4>
+
+
+
+
+<div class="description">
+    <p>GraphQL query for searching users by pattern</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">function</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Group_Components_AddUserForm.jsx.html">Group/Components/AddUserForm.jsx</a>, <a href="Group_Components_AddUserForm.jsx.html#line12">line 12</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="ReadOnlyLargeCard"><span class="type-signature">(constant) </span>ReadOnlyLargeCard<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>ReadOnlyLargeCard component displays detailed information about a group
+including its members in a table format within a large card layout.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Readonly_Pages_ReadOnlyLargeCard.jsx.html">Readonly/Pages/ReadOnlyLargeCard.jsx</a>, <a href="Readonly_Pages_ReadOnlyLargeCard.jsx.html#line27">line 27</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="ReadOnlyPage"><span class="type-signature">(constant) </span>ReadOnlyPage<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>A page component for displaying lazy-loaded content of an group entity.</p>
+<p>This component extracts the <code>id</code> parameter from the route using <code>useParams</code>,
+constructs an <code>group</code> object, and passes it to the <code>GroupPageContentLazy</code> component.
+The <code>GroupPageContentLazy</code> component handles the lazy-loading and rendering of the entity's content.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Readonly_Pages_ReadOnlyPage.jsx.html">Readonly/Pages/ReadOnlyPage.jsx</a>, <a href="Readonly_Pages_ReadOnlyPage.jsx.html#line102">line 102</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example route setup:&lt;Route path="/group/:id" element={&lt;GroupPage />} />// Navigating to "/group/12345" will render the page for the group entity with ID 12345.</code></pre>
+
+
+
+        
+            
+<h4 class="name" id="RemoveUserForm"><span class="type-signature">(constant) </span>RemoveUserForm<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>RemoveUserForm component for removing users from group using dropdown selection</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Group_Components_RemoveUserForm.jsx.html">Group/Components/RemoveUserForm.jsx</a>, <a href="Group_Components_RemoveUserForm.jsx.html#line15">line 15</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="UserButton"><span class="type-signature">(constant) </span>UserButton<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>UserCUDButton Component</p>
+<p>A higher-order component that dynamically renders one of the following components
+based on the <code>operation</code> prop:</p>
+<ul>
+<li><code>InsertUserButton</code> for creating a new item (operation &quot;C&quot;)</li>
+<li><code>UpdateUserButton</code> for updating an existing item (operation &quot;U&quot;)</li>
+<li><code>DeleteUserButton</code> for deleting an existing item (operation &quot;D&quot;)</li>
+</ul>
+<p>This component validates the <code>user</code> prop:</p>
+<ul>
+<li>For &quot;C&quot; (create), <code>user</code> can be any object (no restrictions).</li>
+<li>For &quot;U&quot; (update) and &quot;D&quot; (delete), <code>user</code> must include an <code>id</code> key.</li>
+</ul>
+<p>If the <code>operation</code> prop is invalid or required conditions for <code>user</code> are not met,
+an <code>ErrorHandler</code> component is rendered with an appropriate error message.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="User_Components_UserCUDButton.jsx.html">User/Components/UserCUDButton.jsx</a>, <a href="User_Components_UserCUDButton.jsx.html#line72">line 72</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example Usageconst Example = () => {  const handleDone = (data) => console.log("Operation completed:", data);  return (    &lt;>      &lt;UserCUDButton        operation="C"        user={{ name: "New Item", name_en: "New Item EN" }}        onDone={handleDone}      >        Insert      &lt;/UserCUDButton>      &lt;UserCUDButton        operation="U"        user={{ id: "123", name: "Updated Item", name_en: "Updated Item EN" }}        onDone={handleDone}      >        Update      &lt;/UserCUDButton>      &lt;UserCUDButton        operation="D"        user={{ id: "123" }}        onDone={handleDone}      >        Delete      &lt;/UserCUDButton>    &lt;/>  );};</code></pre>
+
+
+
+        
+            
+<h4 class="name" id="UserCardCapsule"><span class="type-signature">(constant) </span>UserCardCapsule<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>A specialized card component that displays an <code>UserLink</code> as its title and encapsulates additional content.</p>
+<p>This component extends the <code>CardCapsule</code> component by using a combination of a <code>PersonFill</code> icon and
+an <code>UserLink</code> component in the card's header. The <code>children</code> prop is used to render any content
+inside the card body. It is designed for use with entities represented by the <code>user</code> object.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="User_Components_UserCardCapsule.jsx.html">User/Components/UserCardCapsule.jsx</a>, <a href="User_Components_UserCardCapsule.jsx.html#line32">line 32</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example usage:import { UserCardCapsule } from './UserCardCapsule';import { Button } from 'react-bootstrap';const userEntity = { id: 123, name: "Example Entity" };&lt;UserCardCapsule user={userEntity}>  &lt;Button variant="primary">Click Me&lt;/Button>&lt;/UserCardCapsule></code></pre>
+
+
+
+        
+            
+<h4 class="name" id="UserChildren"><span class="type-signature">(constant) </span>UserChildren<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>UserChildren Component</p>
+<p>A utility React component that wraps its children with the <code>ChildWrapper</code> component,
+passing down an <code>user</code> entity along with other props to all child elements.
+This component is useful for injecting a common <code>user</code> entity into multiple children
+while preserving their existing functionality.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="User_Components_UserChildren.jsx.html">User/Components/UserChildren.jsx</a>, <a href="User_Components_UserChildren.jsx.html#line30">line 30</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example usage:const userEntity = { id: 1, message: "No data available" };&lt;UserChildren user={userEntity}>    &lt;CustomMessage />    &lt;CustomIcon />&lt;/UserChildren>// Result: Both &lt;CustomMessage /> and &lt;CustomIcon /> receive the 'user' prop with the specified entity.</code></pre>
+
+
+
+        
+            
+<h4 class="name" id="UserGroupsAttribute"><span class="type-signature">(constant) </span>UserGroupsAttribute<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>A component for displaying the <code>groups</code> attribute of an user entity.</p>
+<p>This component checks if the <code>groups</code> attribute exists on the <code>user</code> object. If <code>groups</code> is undefined,
+the component returns <code>null</code> and renders nothing. Otherwise, it maps over the <code>groups</code> array and
+displays a placeholder message and a JSON representation for each item in the <code>groups</code>.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="User_Vectors_UserGroupsAttribute.jsx.html">User/Vectors/UserGroupsAttribute.jsx</a>, <a href="User_Vectors_UserGroupsAttribute.jsx.html#line31">line 31</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example usage:const userEntity = {   groups: [    { id: 1, name: "Group Item 1" },     { id: 2, name: "Group Item 2" }  ] };&lt;UserGroupsAttribute user={userEntity} /></code></pre>
+
+
+
+        
+            
+<h4 class="name" id="UserLargeCard"><span class="type-signature">(constant) </span>UserLargeCard<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>A large card component for displaying detailed content and layout for an user entity.</p>
+<p>This component wraps an <code>UserCardCapsule</code> with a flexible layout that includes multiple
+columns. It uses a <code>Row</code> layout with a <code>LeftColumn</code> for displaying an <code>UserMediumCard</code>
+and a <code>MiddleColumn</code> for rendering additional children.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="User_Components_UserLargeCard.jsx.html">User/Components/UserLargeCard.jsx</a>, <a href="User_Components_UserLargeCard.jsx.html#line32">line 32</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example usage:const userEntity = { id: 123, name: "Sample Entity" };&lt;UserLargeCard user={userEntity}>  &lt;p>Additional content for the middle column.&lt;/p>&lt;/UserLargeCard></code></pre>
+
+
+
+        
+            
+<h4 class="name" id="UserMediumCard"><span class="type-signature">(constant) </span>UserMediumCard<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>A card component that displays detailed content for an user entity.</p>
+<p>This component combines <code>UserCardCapsule</code> and <code>UserMediumContent</code> to create a card layout
+with a title and medium-level content. The title includes a <code>PersonFill</code> icon and a link to
+the user entity's details, while the body displays serialized details of the entity along
+with any additional children passed to the component.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="User_Components_UserMediumCard.jsx.html">User/Components/UserMediumCard.jsx</a>, <a href="User_Components_UserMediumCard.jsx.html#line31">line 31</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example usage:const userEntity = { id: 123, name: "Sample Entity" };&lt;UserMediumCard user={userEntity}>  &lt;p>Additional details or actions for the entity.&lt;/p>&lt;/UserMediumCard></code></pre>
+
+
+
+        
+            
+<h4 class="name" id="UserMediumContent"><span class="type-signature">(constant) </span>UserMediumContent<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>A component that displays medium-level content for an user entity.</p>
+<p>This component renders a label &quot;UserMediumContent&quot; followed by a serialized representation of the <code>user</code> object
+and any additional child content. It is designed to handle and display information about an user entity object.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="User_Components_UserMediumContent.jsx.html">User/Components/UserMediumContent.jsx</a>, <a href="User_Components_UserMediumContent.jsx.html#line24">line 24</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example usage:const userEntity = { id: 123, name: "Sample Entity" };&lt;UserMediumContent user={userEntity}>  &lt;p>Additional information about the entity.&lt;/p>&lt;/UserMediumContent></code></pre>
+
+
+
+        
+            
+<h4 class="name" id="UserMediumEditableContent"><span class="type-signature">(constant) </span>UserMediumEditableContent<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>A component that displays medium-level content for an user entity.</p>
+<p>This component renders a label &quot;UserMediumContent&quot; followed by a serialized representation of the <code>user</code> object
+and any additional child content. It is designed to handle and display information about an user entity object.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="User_Components_UserMediumEditableContent.jsx.html">User/Components/UserMediumEditableContent.jsx</a>, <a href="User_Components_UserMediumEditableContent.jsx.html#line26">line 26</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example usage:const userEntity = { id: 123, name: "Sample Entity" };&lt;UserMediumContent user={userEntity}>  &lt;p>Additional information about the entity.&lt;/p>&lt;/UserMediumContent></code></pre>
+
+
+
+        
+            
+<h4 class="name" id="UserPage"><span class="type-signature">(constant) </span>UserPage<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>A page component for displaying lazy-loaded content of an user entity.</p>
+<p>This component extracts the <code>id</code> parameter from the route using <code>useParams</code>,
+constructs an <code>user</code> object, and passes it to the <code>UserPageContentLazy</code> component.
+The <code>UserPageContentLazy</code> component handles the lazy-loading and rendering of the entity's content.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="User_Pages_UserPage.jsx.html">User/Pages/UserPage.jsx</a>, <a href="User_Pages_UserPage.jsx.html#line108">line 108</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example route setup:&lt;Route path="/user/:id" element={&lt;UserPage />} />// Navigating to "/user/12345" will render the page for the user entity with ID 12345.</code></pre>
+
+
+
+        
+            
+<h4 class="name" id="UserPageContentLazy"><span class="type-signature">(constant) </span>UserPageContentLazy<span class="type-signature"> :React.Component</span></h4>
+
+
+
+
+<div class="description">
+    <p>A lazy-loading component for displaying content of an user entity.</p>
+<p>This component is created using <code>createLazyComponent</code> and wraps <code>UserPageContent</code> to provide
+automatic data fetching for the <code>user</code> entity. It uses the <code>UserReadAsyncAction</code> to fetch
+the entity data and dynamically injects it into the wrapped component as the <code>user</code> prop.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">React.Component</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="User_Pages_UserPage.jsx.html">User/Pages/UserPage.jsx</a>, <a href="User_Pages_UserPage.jsx.html#line68">line 68</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example usage:const userId = "12345";&lt;UserPageContentLazy user={userId} /></code></pre>
+
+
+
+        
+            
+<h4 class="name" id="UserPageNavbar"><span class="type-signature">(constant) </span>UserPageNavbar<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>Renders the navigation bar for an User page.</p>
+<p>This component uses a custom hook, <code>useHash()</code>, to determine the current hash
+and highlights the active segment. It displays a navigation bar (using MyNavbar)
+with several segments (e.g. &quot;history&quot;, &quot;roles&quot;, &quot;graph&quot;), each rendered as a
+TitleNavButton. The segments are hardcoded in this component and only rendered
+if an <code>user</code> object is provided.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="User_Pages_UserPageNavbar.jsx.html">User/Pages/UserPageNavbar.jsx</a>, <a href="User_Pages_UserPageNavbar.jsx.html#line69">line 69</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example usage:const user = { id: 123, ... };&lt;UserPageNavbar user={user} onSearchChange={handleSearchChange} /></code></pre>
+
+
+
+        
+            
+<h4 class="name" id="UserReadAsyncAction"><span class="type-signature">(constant) </span>UserReadAsyncAction<span class="type-signature"> :function</span></h4>
+
+
+
+
+<div class="description">
+    <p>An async action for executing a GraphQL query to read user entities.</p>
+<p>This action is created using <code>createAsyncGraphQLAction</code> with a predefined <code>UserQueryRead</code> query.
+It can be dispatched with query variables to fetch data related to user entities from the GraphQL API.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">function</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="User_Queries_UserReadAsyncAction.jsx.html">User/Queries/UserReadAsyncAction.jsx</a>, <a href="User_Queries_UserReadAsyncAction.jsx.html#line42">line 42</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example usage:const queryVariables = { id: "12345" };dispatch(UserReadAsyncAction(queryVariables))  .then((result) => {    console.log("Fetched data:", result);  })  .catch((error) => {    console.error("Error fetching data:", error);  });</code></pre>
+
+
+
+        
+            
+<h4 class="name" id="UserRouterSegment"><span class="type-signature">(constant) </span>UserRouterSegment<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>A router segment definition for the User page.</p>
+<p>This object defines a route path and its associated React element.
+The <code>path</code> property is constructed using a base URI stored in <code>UserURI</code>
+and expects an <code>id</code> parameter. The <code>element</code> property specifies the React
+component to render when the route matches.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>path</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The URL path pattern for the route, e.g., &quot;/user/user/view/:id&quot;.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>element</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">JSX.Element</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The React element (component) to render, in this case, <UserPage />.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="User_Pages_UserRouterSegment.jsx.html">User/Pages/UserRouterSegment.jsx</a>, <a href="User_Pages_UserRouterSegment.jsx.html#line4">line 4</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="UserScalarAttribute"><span class="type-signature">(constant) </span>UserScalarAttribute<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>A component for displaying the <code>scalar</code> attribute of an user entity.</p>
+<p>This component checks if the <code>scalar</code> attribute exists on the <code>user</code> object. If <code>scalar</code> is undefined,
+the component returns <code>null</code> and renders nothing. Otherwise, it displays a placeholder message
+and a JSON representation of the <code>scalar</code> attribute.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="User_Scalars_UserScalarAttribute.jsx.html">User/Scalars/UserScalarAttribute.jsx</a>, <a href="User_Scalars_UserScalarAttribute.jsx.html#line21">line 21</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example usage:const userEntity = { scalar: { id: 1, name: "Sample Scalar" } };&lt;UserScalarAttribute user={userEntity} /></code></pre>
+
+
+
+        
+            
+<h4 class="name" id="UserVectorsAttribute"><span class="type-signature">(constant) </span>UserVectorsAttribute<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>A component for displaying the <code>vectors</code> attribute of an user entity.</p>
+<p>This component checks if the <code>vectors</code> attribute exists on the <code>user</code> object. If <code>vectors</code> is undefined,
+the component returns <code>null</code> and renders nothing. Otherwise, it maps over the <code>vectors</code> array and
+displays a placeholder message and a JSON representation for each item in the <code>vectors</code>.</p>
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="User_Vectors_UserVectorsAttribute.jsx.html">User/Vectors/UserVectorsAttribute.jsx</a>, <a href="User_Vectors_UserVectorsAttribute.jsx.html#line30">line 30</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example usage:const userEntity = {   vectors: [    { id: 1, name: "Vector Item 1" },     { id: 2, name: "Vector Item 2" }  ] };&lt;UserVectorsAttribute user={userEntity} /></code></pre>
+
+
+
+        
+            
+<h4 class="name" id="groupInsertQuery"><span class="type-signature">(constant) </span>groupInsertQuery<span class="type-signature"> :function</span></h4>
+
+
+
+
+<div class="description">
+    <p>GraphQL mutation for inserting a new group
+Uses variables for name and grouptypeId
+Returns either GroupGQLModel or InsertError</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">function</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Data_Queries_Queries.jsx.html">Data/Queries/Queries.jsx</a>, <a href="Data_Queries_Queries.jsx.html#line23">line 23</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="groupTypePageQuery"><span class="type-signature">(constant) </span>groupTypePageQuery<span class="type-signature"> :function</span></h4>
+
+
+
+
+<div class="description">
+    <p>GraphQL query for loading group types
+Returns an array of group types with id and name</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">function</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Data_Queries_Queries.jsx.html">Data/Queries/Queries.jsx</a>, <a href="Data_Queries_Queries.jsx.html#line8">line 8</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="GroupForm"><span class="type-signature"></span>GroupForm<span class="signature">(props)</span><span class="type-signature"> &rarr; {JSX.Element}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>GroupForm component for creating new groups</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>props</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Component props</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>groupTypes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Array of available group types</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>onSubmit</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Callback function called when form is submitted</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>loading</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Loading state for form submission</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>loadingGroupTypes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Loading state for group types</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>usingFallback</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Whether fallback data is being used</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Data_Components_GroupForm.jsx.html">Data/Components/GroupForm.jsx</a>, <a href="Data_Components_GroupForm.jsx.html#line16">line 16</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>GroupForm component</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">JSX.Element</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="GroupLink"><span class="type-signature"></span>GroupLink<span class="signature">(props)</span><span class="type-signature"> &rarr; {JSX.Element}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>A React component that renders a <code>ProxyLink</code> to an &quot;group&quot; entity's view page.</p>
+<p>The target URL is dynamically constructed using the <code>group</code> object's <code>id</code>, and the link displays
+the <code>group</code> object's <code>name</code> as its clickable content.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>props</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The properties for the <code>GroupLink</code> component.</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>group</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The object representing the &quot;group&quot; entity.</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The unique identifier for the &quot;group&quot; entity. Used to construct the target URL.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The display name for the &quot;group&quot; entity. Used as the link text.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Group_Components_GroupLink.jsx.html">Group/Components/GroupLink.jsx</a>, <a href="Group_Components_GroupLink.jsx.html#line5">line 5</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li>ProxyLink - The base component used for rendering the link.</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>A <code>ProxyLink</code> component linking to the specified &quot;group&quot; entity's view page.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">JSX.Element</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example usage with a sample group entity:const groupEntity = { id: 123, name: "Example Group Entity" };&lt;GroupLink group={groupEntity} />// Renders: &lt;ProxyLink to="/group/group/view/123">Example Group Entity&lt;/ProxyLink></code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="GroupPageContent"><span class="type-signature"></span>GroupPageContent<span class="signature">(props)</span><span class="type-signature"> &rarr; {JSX.Element}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>A page content component for displaying detailed information about an group entity.</p>
+<p>This component utilizes <code>GroupLargeCard</code> to create a structured layout and displays
+the serialized representation of the <code>group</code> object within the card's content.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>props</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The properties for the GroupPageContent component.</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>group</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The object representing the group entity.</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The unique identifier for the group entity.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The name or label of the group entity.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Group_Pages_GroupPage.jsx.html">Group/Pages/GroupPage.jsx</a>, <a href="Group_Pages_GroupPage.jsx.html#line30">line 30</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>A JSX element rendering the page content for an group entity.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">JSX.Element</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example usage:const groupEntity = { id: 123, name: "Sample Entity" };&lt;GroupPageContent group={groupEntity} /></code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="GroupPageContent"><span class="type-signature"></span>GroupPageContent<span class="signature">(props)</span><span class="type-signature"> &rarr; {JSX.Element}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>A page content component for displaying detailed information about an group entity.</p>
+<p>This component utilizes <code>GroupLargeCard</code> to create a structured layout and displays
+the serialized representation of the <code>group</code> object within the card's content.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>props</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The properties for the GroupPageContent component.</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>group</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The object representing the group entity.</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The unique identifier for the group entity.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The name or label of the group entity.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Readonly_Pages_ReadOnlyPage.jsx.html">Readonly/Pages/ReadOnlyPage.jsx</a>, <a href="Readonly_Pages_ReadOnlyPage.jsx.html#line30">line 30</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>A JSX element rendering the page content for an group entity.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">JSX.Element</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example usage:const groupEntity = { id: 123, name: "Sample Entity" };&lt;GroupPageContent group={groupEntity} /></code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="GroupSuccessAlert"><span class="type-signature"></span>GroupSuccessAlert<span class="signature">(props)</span><span class="type-signature"> &rarr; {JSX.Element|null}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>GroupSuccessAlert component displays success message after group creation</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>props</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Component props</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>createdGroup</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+|
+
+<span class="param-type">null</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The created group object or null</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>onCreateNew</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Callback function to create a new group</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Data_Components_GroupSuccessAlert.jsx.html">Data/Components/GroupSuccessAlert.jsx</a>, <a href="Data_Components_GroupSuccessAlert.jsx.html#line11">line 11</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Success alert component or null if no group created</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">JSX.Element</span>
+|
+
+<span class="param-type">null</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="LocalUser"><span class="type-signature"></span>LocalUser<span class="signature">(props)</span><span class="type-signature"> &rarr; {JSX.Element}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>LocalUser component for displaying a single user in search results</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>props</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Component props</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>user</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>User object with id, name, surname, and fullname</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>onSelect</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Callback function when user is selected</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Group_Components_AddUserForm.jsx.html">Group/Components/AddUserForm.jsx</a>, <a href="Group_Components_AddUserForm.jsx.html#line29">line 29</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>LocalUser component</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">JSX.Element</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="ProgramLink"><span class="type-signature"></span>ProgramLink<span class="signature">(props)</span><span class="type-signature"> &rarr; {JSX.Element}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>A React component that renders a <code>ProxyLink</code> to an &quot;program&quot; entity's view page.</p>
+<p>The target URL is dynamically constructed using the <code>program</code> object's <code>id</code>, and the link displays
+the <code>program</code> object's <code>name</code> as its clickable content.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>props</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The properties for the <code>ProgramLink</code> component.</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>program</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The object representing the &quot;program&quot; entity.</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The unique identifier for the &quot;program&quot; entity. Used to construct the target URL.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The display name for the &quot;program&quot; entity. Used as the link text.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Program_Components_ProgramLink.jsx.html">Program/Components/ProgramLink.jsx</a>, <a href="Program_Components_ProgramLink.jsx.html#line5">line 5</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li>ProxyLink - The base component used for rendering the link.</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>A <code>ProxyLink</code> component linking to the specified &quot;program&quot; entity's view page.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">JSX.Element</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example usage with a sample program entity:const programEntity = { id: 123, name: "Example Program Entity" };&lt;ProgramLink program={programEntity} />// Renders: &lt;ProxyLink to="/program/program/view/123">Example Program Entity&lt;/ProxyLink></code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="ProgramPageContent"><span class="type-signature"></span>ProgramPageContent<span class="signature">(props)</span><span class="type-signature"> &rarr; {JSX.Element}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>A page content component for displaying detailed information about an program entity.</p>
+<p>This component utilizes <code>ProgramLargeCard</code> to create a structured layout and displays
+the serialized representation of the <code>program</code> object within the card's content.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>props</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The properties for the ProgramPageContent component.</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>program</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The object representing the program entity.</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The unique identifier for the program entity.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The name or label of the program entity.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Program_Pages_ProgramPage.jsx.html">Program/Pages/ProgramPage.jsx</a>, <a href="Program_Pages_ProgramPage.jsx.html#line30">line 30</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>A JSX element rendering the page content for an program entity.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">JSX.Element</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example usage:const programEntity = { id: 123, name: "Sample Entity" };&lt;ProgramPageContent program={programEntity} /></code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="TitleNavButton"><span class="type-signature"></span>TitleNavButton<span class="signature">(props)</span><span class="type-signature"> &rarr; {JSX.Element}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>A navigation button component that generates a URL based on the group's ID and a specific segment.
+The button uses a <code>ProxyLink</code> to navigate while preserving hash and query parameters.</p>
+<h3>Features:</h3>
+<ul>
+<li>Dynamically constructs the URL with a hash fragment pointing to the specified segment.</li>
+<li>Displays a label for the navigation link.</li>
+<li>Integrates seamlessly with <code>ProxyLink</code> for enhanced navigation.</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>props</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The properties for the TitleNavButton component.</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>group</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The group object containing details about the group.</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The unique identifier for the group.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>segment</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The segment to append as a hash fragment in the URL.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>label</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The text to display as the label for the navigation button.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Group_Pages_GroupPageNavbar.jsx.html">Group/Pages/GroupPageNavbar.jsx</a>, <a href="Group_Pages_GroupPageNavbar.jsx.html#line37">line 37</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>A styled navigation button linking to the constructed URL.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">JSX.Element</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Examples</h5>
+    
+    <pre class="prettyprint"><code>// Example 1: Basic usage with a group and segmentconst group = { id: 123 };const segment = "details";const label = "View Details";&lt;TitleNavButton group={group} segment={segment} label={label} />// Resulting URL: `/ug/group/view/123#details`</code></pre>
+
+    <pre class="prettyprint"><code>// Example 2: Different segment and label&lt;TitleNavButton group={{ id: 456 }} segment="settings" label="Group Settings" />// Resulting URL: `/ug/group/view/456#settings`</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="TitleNavButton"><span class="type-signature"></span>TitleNavButton<span class="signature">(props)</span><span class="type-signature"> &rarr; {JSX.Element}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>A navigation button component that generates a URL based on the program's ID and a specific segment.
+The button uses a <code>ProxyLink</code> to navigate while preserving hash and query parameters.</p>
+<h3>Features:</h3>
+<ul>
+<li>Dynamically constructs the URL with a hash fragment pointing to the specified segment.</li>
+<li>Displays a label for the navigation link.</li>
+<li>Integrates seamlessly with <code>ProxyLink</code> for enhanced navigation.</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>props</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The properties for the TitleNavButton component.</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>program</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The program object containing details about the program.</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The unique identifier for the program.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>segment</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The segment to append as a hash fragment in the URL.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>label</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The text to display as the label for the navigation button.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Program_Pages_ProgramPageNavbar.jsx.html">Program/Pages/ProgramPageNavbar.jsx</a>, <a href="Program_Pages_ProgramPageNavbar.jsx.html#line37">line 37</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>A styled navigation button linking to the constructed URL.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">JSX.Element</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Examples</h5>
+    
+    <pre class="prettyprint"><code>// Example 1: Basic usage with a program and segmentconst program = { id: 123 };const segment = "details";const label = "View Details";&lt;TitleNavButton program={program} segment={segment} label={label} />// Resulting URL: `/ug/program/view/123#details`</code></pre>
+
+    <pre class="prettyprint"><code>// Example 2: Different segment and label&lt;TitleNavButton program={{ id: 456 }} segment="settings" label="Program Settings" />// Resulting URL: `/ug/program/view/456#settings`</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="TitleNavButton"><span class="type-signature"></span>TitleNavButton<span class="signature">(props)</span><span class="type-signature"> &rarr; {JSX.Element}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>A navigation button component that generates a URL based on the user's ID and a specific segment.
+The button uses a <code>ProxyLink</code> to navigate while preserving hash and query parameters.</p>
+<h3>Features:</h3>
+<ul>
+<li>Dynamically constructs the URL with a hash fragment pointing to the specified segment.</li>
+<li>Displays a label for the navigation link.</li>
+<li>Integrates seamlessly with <code>ProxyLink</code> for enhanced navigation.</li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>props</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The properties for the TitleNavButton component.</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>user</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The user object containing details about the user.</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The unique identifier for the user.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>segment</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The segment to append as a hash fragment in the URL.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>label</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The text to display as the label for the navigation button.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="User_Pages_UserPageNavbar.jsx.html">User/Pages/UserPageNavbar.jsx</a>, <a href="User_Pages_UserPageNavbar.jsx.html#line37">line 37</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>A styled navigation button linking to the constructed URL.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">JSX.Element</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Examples</h5>
+    
+    <pre class="prettyprint"><code>// Example 1: Basic usage with a user and segmentconst user = { id: 123 };const segment = "details";const label = "View Details";&lt;TitleNavButton user={user} segment={segment} label={label} />// Resulting URL: `/ug/user/view/123#details`</code></pre>
+
+    <pre class="prettyprint"><code>// Example 2: Different segment and label&lt;TitleNavButton user={{ id: 456 }} segment="settings" label="User Settings" />// Resulting URL: `/ug/user/view/456#settings`</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="UserLink"><span class="type-signature"></span>UserLink<span class="signature">(props)</span><span class="type-signature"> &rarr; {JSX.Element}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>A React component that renders a <code>ProxyLink</code> to an &quot;user&quot; entity's view page.</p>
+<p>The target URL is dynamically constructed using the <code>user</code> object's <code>id</code>, and the link displays
+the <code>user</code> object's <code>name</code> as its clickable content.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>props</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The properties for the <code>UserLink</code> component.</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>user</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The object representing the &quot;user&quot; entity.</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The unique identifier for the &quot;user&quot; entity. Used to construct the target URL.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The display name for the &quot;user&quot; entity. Used as the link text.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="User_Components_UserLink.jsx.html">User/Components/UserLink.jsx</a>, <a href="User_Components_UserLink.jsx.html#line5">line 5</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li>ProxyLink - The base component used for rendering the link.</li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>A <code>ProxyLink</code> component linking to the specified &quot;user&quot; entity's view page.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">JSX.Element</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example usage with a sample user entity:const userEntity = { id: 123, name: "Example User Entity" };&lt;UserLink user={userEntity} />// Renders: &lt;ProxyLink to="/user/user/view/123">Example User Entity&lt;/ProxyLink></code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="UserPageContent"><span class="type-signature"></span>UserPageContent<span class="signature">(props)</span><span class="type-signature"> &rarr; {JSX.Element}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>A page content component for displaying detailed information about an user entity.</p>
+<p>This component utilizes <code>UserLargeCard</code> to create a structured layout and displays
+the serialized representation of the <code>user</code> object within the card's content.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>props</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The properties for the UserPageContent component.</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>user</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The object representing the user entity.</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The unique identifier for the user entity.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The name or label of the user entity.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="User_Pages_UserPage.jsx.html">User/Pages/UserPage.jsx</a>, <a href="User_Pages_UserPage.jsx.html#line31">line 31</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>A JSX element rendering the page content for an user entity.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">JSX.Element</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Example usage:const userEntity = { id: 123, name: "Sample Entity" };&lt;UserPageContent user={userEntity} /></code></pre>
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AddUserForm">AddUserForm</a></li><li><a href="global.html#DataGeneratorPage">DataGeneratorPage</a></li><li><a href="global.html#GroupCUDButton">GroupCUDButton</a></li><li><a href="global.html#GroupCardCapsule">GroupCardCapsule</a></li><li><a href="global.html#GroupChildren">GroupChildren</a></li><li><a href="global.html#GroupForm">GroupForm</a></li><li><a href="global.html#GroupLargeCard">GroupLargeCard</a></li><li><a href="global.html#GroupLink">GroupLink</a></li><li><a href="global.html#GroupMediumCard">GroupMediumCard</a></li><li><a href="global.html#GroupMediumContent">GroupMediumContent</a></li><li><a href="global.html#GroupMediumEditableContent">GroupMediumEditableContent</a></li><li><a href="global.html#GroupNameForm">GroupNameForm</a></li><li><a href="global.html#GroupPage">GroupPage</a></li><li><a href="global.html#GroupPageContent">GroupPageContent</a></li><li><a href="global.html#GroupPageContentLazy">GroupPageContentLazy</a></li><li><a href="global.html#GroupPageNavbar">GroupPageNavbar</a></li><li><a href="global.html#GroupReadAsyncAction">GroupReadAsyncAction</a></li><li><a href="global.html#GroupRolesReadAsyncAction">GroupRolesReadAsyncAction</a></li><li><a href="global.html#GroupRolesReadQuery">GroupRolesReadQuery</a></li><li><a href="global.html#GroupRouterSegment">GroupRouterSegment</a></li><li><a href="global.html#GroupScalarAttribute">GroupScalarAttribute</a></li><li><a href="global.html#GroupSuccessAlert">GroupSuccessAlert</a></li><li><a href="global.html#GroupVectorsAttribute">GroupVectorsAttribute</a></li><li><a href="global.html#LocalUser">LocalUser</a></li><li><a href="global.html#MembersList">MembersList</a></li><li><a href="global.html#ProgramButton">ProgramButton</a></li><li><a href="global.html#ProgramCardCapsule">ProgramCardCapsule</a></li><li><a href="global.html#ProgramChildren">ProgramChildren</a></li><li><a href="global.html#ProgramLargeCard">ProgramLargeCard</a></li><li><a href="global.html#ProgramLink">ProgramLink</a></li><li><a href="global.html#ProgramMediumCard">ProgramMediumCard</a></li><li><a href="global.html#ProgramMediumContent">ProgramMediumContent</a></li><li><a href="global.html#ProgramMediumEditableContent">ProgramMediumEditableContent</a></li><li><a href="global.html#ProgramPage">ProgramPage</a></li><li><a href="global.html#ProgramPageContent">ProgramPageContent</a></li><li><a href="global.html#ProgramPageContentLazy">ProgramPageContentLazy</a></li><li><a href="global.html#ProgramPageNavbar">ProgramPageNavbar</a></li><li><a href="global.html#ProgramReadAsyncAction">ProgramReadAsyncAction</a></li><li><a href="global.html#ProgramRouterSegment">ProgramRouterSegment</a></li><li><a href="global.html#ProgramScalarAttribute">ProgramScalarAttribute</a></li><li><a href="global.html#ProgramVectorsAttribute">ProgramVectorsAttribute</a></li><li><a href="global.html#QueryUserAsyncAction">QueryUserAsyncAction</a></li><li><a href="global.html#ReadOnlyLargeCard">ReadOnlyLargeCard</a></li><li><a href="global.html#ReadOnlyPage">ReadOnlyPage</a></li><li><a href="global.html#RemoveUserForm">RemoveUserForm</a></li><li><a href="global.html#TitleNavButton">TitleNavButton</a></li><li><a href="global.html#UserButton">UserButton</a></li><li><a href="global.html#UserCardCapsule">UserCardCapsule</a></li><li><a href="global.html#UserChildren">UserChildren</a></li><li><a href="global.html#UserGroupsAttribute">UserGroupsAttribute</a></li><li><a href="global.html#UserLargeCard">UserLargeCard</a></li><li><a href="global.html#UserLink">UserLink</a></li><li><a href="global.html#UserMediumCard">UserMediumCard</a></li><li><a href="global.html#UserMediumContent">UserMediumContent</a></li><li><a href="global.html#UserMediumEditableContent">UserMediumEditableContent</a></li><li><a href="global.html#UserPage">UserPage</a></li><li><a href="global.html#UserPageContent">UserPageContent</a></li><li><a href="global.html#UserPageContentLazy">UserPageContentLazy</a></li><li><a href="global.html#UserPageNavbar">UserPageNavbar</a></li><li><a href="global.html#UserReadAsyncAction">UserReadAsyncAction</a></li><li><a href="global.html#UserRouterSegment">UserRouterSegment</a></li><li><a href="global.html#UserScalarAttribute">UserScalarAttribute</a></li><li><a href="global.html#UserVectorsAttribute">UserVectorsAttribute</a></li><li><a href="global.html#groupInsertQuery">groupInsertQuery</a></li><li><a href="global.html#groupTypePageQuery">groupTypePageQuery</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Thu Jul 24 2025 10:02:10 GMT+0200 (Central European Summer Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

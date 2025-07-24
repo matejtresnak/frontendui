@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: User/Vectors/UserGroupsAttribute.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: User/Vectors/UserGroupsAttribute.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { createAsyncGraphQLAction, processVectorAttributeFromGraphQLResult } from "@hrbolek/uoisfrontend-gql-shared"
+import { InfiniteScroll } from "@hrbolek/uoisfrontend-shared"
+import { GroupLink } from "../../Group"
+
+/**
+ * A component for displaying the `groups` attribute of an user entity.
+ *
+ * This component checks if the `groups` attribute exists on the `user` object. If `groups` is undefined,
+ * the component returns `null` and renders nothing. Otherwise, it maps over the `groups` array and
+ * displays a placeholder message and a JSON representation for each item in the `groups`.
+ *
+ * @component
+ * @param {Object} props - The props for the UserGroupsAttribute component.
+ * @param {Object} props.user - The object representing the user entity.
+ * @param {Array} [props.user.groups] - An array of groups items associated with the user entity.
+ * Each item is expected to have a unique `id` property.
+ *
+ * @returns {JSX.Element|null} A JSX element displaying the `groups` items or `null` if the attribute is undefined.
+ *
+ * @example
+ * // Example usage:
+ * const userEntity = { 
+ *   groups: [
+ *     { id: 1, name: "Group Item 1" }, 
+ *     { id: 2, name: "Group Item 2" }
+ *   ] 
+ * };
+ *
+ * &lt;UserGroupsAttribute user={userEntity} />
+ */
+export const UserGroupsAttribute = ({user}) => {
+    const { memberships } = user
+    if (typeof memberships === 'undefined') return null
+    return (
+        &lt;>
+            {memberships.map(
+                membership => &lt;div id={membership.id} key={membership.id}>
+                    {/* Probably {'&lt;GroupMediumCard group=\{group\} />'} &lt;br /> */}
+                    &lt;b>{membership?.group?.grouptype?.name}&lt;/b> &lt;GroupLink group={membership.group} /> &lt;br />
+                    {/* {JSON.stringify(group)} */}
+                &lt;/div>
+            )}
+        &lt;/>
+    )
+}
+
+const GroupsAttributeQuery = `
+query UserQueryRead($id: id, $where: GroupInputFilter, $skip: Int, $limit: Int) {
+    result: userById(id: $id) {
+        __typename
+        id
+        groups(skip: $skip, limit: $limit, where: $where) {
+            __typename
+            id
+        }
+    }
+}
+`
+
+const GroupsAttributeAsyncAction = createAsyncGraphQLAction(
+    GroupsAttributeQuery,
+    processVectorAttributeFromGraphQLResult("groups")
+)
+
+export const UserGroupsAttributeInifite = ({user}) => { 
+    const {groups} = user
+
+    return (
+        &lt;InfiniteScroll 
+            Visualiser={'GroupMediumCard'} 
+            actionParams={{skip: 0, limit: 10}}
+            asyncAction={GroupsAttributeAsyncAction}
+        />
+    )
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AddUserForm">AddUserForm</a></li><li><a href="global.html#DataGeneratorPage">DataGeneratorPage</a></li><li><a href="global.html#GroupCUDButton">GroupCUDButton</a></li><li><a href="global.html#GroupCardCapsule">GroupCardCapsule</a></li><li><a href="global.html#GroupChildren">GroupChildren</a></li><li><a href="global.html#GroupForm">GroupForm</a></li><li><a href="global.html#GroupLargeCard">GroupLargeCard</a></li><li><a href="global.html#GroupLink">GroupLink</a></li><li><a href="global.html#GroupMediumCard">GroupMediumCard</a></li><li><a href="global.html#GroupMediumContent">GroupMediumContent</a></li><li><a href="global.html#GroupMediumEditableContent">GroupMediumEditableContent</a></li><li><a href="global.html#GroupNameForm">GroupNameForm</a></li><li><a href="global.html#GroupPage">GroupPage</a></li><li><a href="global.html#GroupPageContent">GroupPageContent</a></li><li><a href="global.html#GroupPageContentLazy">GroupPageContentLazy</a></li><li><a href="global.html#GroupPageNavbar">GroupPageNavbar</a></li><li><a href="global.html#GroupReadAsyncAction">GroupReadAsyncAction</a></li><li><a href="global.html#GroupRolesReadAsyncAction">GroupRolesReadAsyncAction</a></li><li><a href="global.html#GroupRolesReadQuery">GroupRolesReadQuery</a></li><li><a href="global.html#GroupRouterSegment">GroupRouterSegment</a></li><li><a href="global.html#GroupScalarAttribute">GroupScalarAttribute</a></li><li><a href="global.html#GroupSuccessAlert">GroupSuccessAlert</a></li><li><a href="global.html#GroupVectorsAttribute">GroupVectorsAttribute</a></li><li><a href="global.html#LocalUser">LocalUser</a></li><li><a href="global.html#MembersList">MembersList</a></li><li><a href="global.html#ProgramButton">ProgramButton</a></li><li><a href="global.html#ProgramCardCapsule">ProgramCardCapsule</a></li><li><a href="global.html#ProgramChildren">ProgramChildren</a></li><li><a href="global.html#ProgramLargeCard">ProgramLargeCard</a></li><li><a href="global.html#ProgramLink">ProgramLink</a></li><li><a href="global.html#ProgramMediumCard">ProgramMediumCard</a></li><li><a href="global.html#ProgramMediumContent">ProgramMediumContent</a></li><li><a href="global.html#ProgramMediumEditableContent">ProgramMediumEditableContent</a></li><li><a href="global.html#ProgramPage">ProgramPage</a></li><li><a href="global.html#ProgramPageContent">ProgramPageContent</a></li><li><a href="global.html#ProgramPageContentLazy">ProgramPageContentLazy</a></li><li><a href="global.html#ProgramPageNavbar">ProgramPageNavbar</a></li><li><a href="global.html#ProgramReadAsyncAction">ProgramReadAsyncAction</a></li><li><a href="global.html#ProgramRouterSegment">ProgramRouterSegment</a></li><li><a href="global.html#ProgramScalarAttribute">ProgramScalarAttribute</a></li><li><a href="global.html#ProgramVectorsAttribute">ProgramVectorsAttribute</a></li><li><a href="global.html#QueryUserAsyncAction">QueryUserAsyncAction</a></li><li><a href="global.html#ReadOnlyLargeCard">ReadOnlyLargeCard</a></li><li><a href="global.html#ReadOnlyPage">ReadOnlyPage</a></li><li><a href="global.html#RemoveUserForm">RemoveUserForm</a></li><li><a href="global.html#TitleNavButton">TitleNavButton</a></li><li><a href="global.html#UserButton">UserButton</a></li><li><a href="global.html#UserCardCapsule">UserCardCapsule</a></li><li><a href="global.html#UserChildren">UserChildren</a></li><li><a href="global.html#UserGroupsAttribute">UserGroupsAttribute</a></li><li><a href="global.html#UserLargeCard">UserLargeCard</a></li><li><a href="global.html#UserLink">UserLink</a></li><li><a href="global.html#UserMediumCard">UserMediumCard</a></li><li><a href="global.html#UserMediumContent">UserMediumContent</a></li><li><a href="global.html#UserMediumEditableContent">UserMediumEditableContent</a></li><li><a href="global.html#UserPage">UserPage</a></li><li><a href="global.html#UserPageContent">UserPageContent</a></li><li><a href="global.html#UserPageContentLazy">UserPageContentLazy</a></li><li><a href="global.html#UserPageNavbar">UserPageNavbar</a></li><li><a href="global.html#UserReadAsyncAction">UserReadAsyncAction</a></li><li><a href="global.html#UserRouterSegment">UserRouterSegment</a></li><li><a href="global.html#UserScalarAttribute">UserScalarAttribute</a></li><li><a href="global.html#UserVectorsAttribute">UserVectorsAttribute</a></li><li><a href="global.html#groupInsertQuery">groupInsertQuery</a></li><li><a href="global.html#groupTypePageQuery">groupTypePageQuery</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Thu Jul 24 2025 10:02:10 GMT+0200 (Central European Summer Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

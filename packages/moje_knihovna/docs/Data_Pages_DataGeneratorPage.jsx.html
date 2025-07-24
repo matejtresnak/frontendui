@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Data/Pages/DataGeneratorPage.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Data/Pages/DataGeneratorPage.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { useState, useEffect } from "react";
+import { ErrorHandler } from "@hrbolek/uoisfrontend-shared";
+import { useAsyncAction, createAsyncGraphQLAction } from "@hrbolek/uoisfrontend-gql-shared";
+
+import GroupForm from "../Components/GroupForm";
+import GroupSuccessAlert from "../Components/GroupSuccessAlert";
+import { groupTypes } from "../Components/constants";
+import { groupTypePageQuery, groupInsertQuery } from "../Queries/Queries";
+
+/**
+ * DataGeneratorPage component - Main page for creating new groups
+ * Manages group creation workflow including loading group types and handling form submission
+ * @returns {JSX.Element} DataGeneratorPage component
+ */
+export const DataGeneratorPage = () => {
+  const [createdGroup, setCreatedGroup] = useState(null);
+  const [loadedGroupTypes, setLoadedGroupTypes] = useState(groupTypes);
+  const [usingFallback, setUsingFallback] = useState(true);
+
+  /**
+   * Async action for loading group types from GraphQL
+   */
+  const {
+    fetch: loadGroupTypes,
+    loading: loadingGroupTypes,
+    error: groupTypesError,
+  } = useAsyncAction(
+    createAsyncGraphQLAction(groupTypePageQuery),
+    {
+      onSuccess: (data) => {
+        const types = data?.data?.groupTypePage;
+        if (types &amp;&amp; Array.isArray(types)) {
+          setLoadedGroupTypes(types);
+          setUsingFallback(false);
+        }
+      },
+    },
+    { deferred: true }
+  );
+
+  /**
+   * Async action for inserting new group via GraphQL
+   */
+  const {
+    fetch: insertGroup,
+    loading: inserting,
+    error: insertError,
+  } = useAsyncAction(
+    createAsyncGraphQLAction(groupInsertQuery),
+    {
+      onSuccess: (data) => {
+        console.log("onSuccess spuštěn!");
+        console.log("Celá odpověď:", data);
+        const result = data?.data?.groupInsert;
+        console.log("Výsledek groupInsert:", result);
+        if (result &amp;&amp; result.id) {
+          console.log("Nastavujem createdGroup:", result);
+          setCreatedGroup(result);
+        } else {
+          console.log("Podmínka result &amp;&amp; result.id selhala");
+          alert("Vytvoření skupiny selhalo.");
+          console.warn("Neočekávaná odpověď:", data);
+        }
+      },
+      onError: (error) => {
+        console.log("onError spuštěn:", error);
+      },
+      onSettled: (data, error) => {
+        console.log("onSettled spuštěn - data:", data, "error:", error);
+      }
+    },
+    { deferred: true }
+  );
+
+  /**
+   * Effect to load group types on component mount
+   */
+  useEffect(() => {
+    loadGroupTypes();
+  }, []);
+
+  /**
+   * Handles form submission for creating new group
+   * @param {Object} groupData - Group data from form
+   * @param {string} groupData.name - Group name
+   * @param {string} groupData.groupTypeId - Group type ID
+   */
+  const handleSubmit = async ({ name, groupTypeId }) => {
+    console.log("handleSubmit spuštěn");
+    console.log("Odesílám data:", { name, grouptypeId: groupTypeId });
+    
+    // Clear previous result
+    setCreatedGroup(null);
+    
+    try {
+      // Call with GraphQL variables object
+      const result = await insertGroup({ 
+        name: name, 
+        grouptypeId: groupTypeId 
+      });
+      
+      console.log("Výsledek await insertGroup:", result);
+      
+      const groupResult = result?.data?.groupInsert;
+      console.log("groupInsert data:", groupResult);
+      
+      if (groupResult &amp;&amp; groupResult.id) {
+        console.log("Nastavujem createdGroup:", groupResult);
+        setCreatedGroup(groupResult);
+      } else {
+        alert("Vytvoření skupiny selhalo.");
+        console.warn("Neočekávaná odpověď:", result);
+      }
+    } catch (error) {
+      console.error("Chyba při vytváření skupiny:", error);
+      alert("Došlo k chybě při vytváření skupiny.");
+    }
+  };
+
+  /**
+   * Handles creating new group by clearing the current created group
+   */
+  const handleCreateNew = () => {
+    setCreatedGroup(null);
+  };
+
+  return (
+    &lt;div className="container mt-4">
+      &lt;h3>Vytvoření nové skupiny&lt;/h3>
+      
+      &lt;div className="mb-3">
+        &lt;small>Debug: createdGroup = {createdGroup ? "má hodnotu" : "null"}&lt;/small>
+        {createdGroup &amp;&amp; &lt;small>&lt;br/>ID: {createdGroup.id}&lt;/small>}
+      &lt;/div>
+
+      {insertError &amp;&amp; &lt;ErrorHandler errors={insertError} />}
+      {groupTypesError &amp;&amp; &lt;ErrorHandler errors={groupTypesError} />}
+
+      &lt;GroupSuccessAlert 
+        createdGroup={createdGroup} 
+        onCreateNew={handleCreateNew} 
+      />
+
+      &lt;GroupForm
+        groupTypes={loadedGroupTypes}
+        onSubmit={handleSubmit}
+        loading={inserting}
+        loadingGroupTypes={loadingGroupTypes}
+        usingFallback={usingFallback}
+      />
+    &lt;/div>
+  );
+};</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AddUserForm">AddUserForm</a></li><li><a href="global.html#DataGeneratorPage">DataGeneratorPage</a></li><li><a href="global.html#GroupCUDButton">GroupCUDButton</a></li><li><a href="global.html#GroupCardCapsule">GroupCardCapsule</a></li><li><a href="global.html#GroupChildren">GroupChildren</a></li><li><a href="global.html#GroupForm">GroupForm</a></li><li><a href="global.html#GroupLargeCard">GroupLargeCard</a></li><li><a href="global.html#GroupLink">GroupLink</a></li><li><a href="global.html#GroupMediumCard">GroupMediumCard</a></li><li><a href="global.html#GroupMediumContent">GroupMediumContent</a></li><li><a href="global.html#GroupMediumEditableContent">GroupMediumEditableContent</a></li><li><a href="global.html#GroupNameForm">GroupNameForm</a></li><li><a href="global.html#GroupPage">GroupPage</a></li><li><a href="global.html#GroupPageContent">GroupPageContent</a></li><li><a href="global.html#GroupPageContentLazy">GroupPageContentLazy</a></li><li><a href="global.html#GroupPageNavbar">GroupPageNavbar</a></li><li><a href="global.html#GroupReadAsyncAction">GroupReadAsyncAction</a></li><li><a href="global.html#GroupRolesReadAsyncAction">GroupRolesReadAsyncAction</a></li><li><a href="global.html#GroupRolesReadQuery">GroupRolesReadQuery</a></li><li><a href="global.html#GroupRouterSegment">GroupRouterSegment</a></li><li><a href="global.html#GroupScalarAttribute">GroupScalarAttribute</a></li><li><a href="global.html#GroupSuccessAlert">GroupSuccessAlert</a></li><li><a href="global.html#GroupVectorsAttribute">GroupVectorsAttribute</a></li><li><a href="global.html#LocalUser">LocalUser</a></li><li><a href="global.html#MembersList">MembersList</a></li><li><a href="global.html#ProgramButton">ProgramButton</a></li><li><a href="global.html#ProgramCardCapsule">ProgramCardCapsule</a></li><li><a href="global.html#ProgramChildren">ProgramChildren</a></li><li><a href="global.html#ProgramLargeCard">ProgramLargeCard</a></li><li><a href="global.html#ProgramLink">ProgramLink</a></li><li><a href="global.html#ProgramMediumCard">ProgramMediumCard</a></li><li><a href="global.html#ProgramMediumContent">ProgramMediumContent</a></li><li><a href="global.html#ProgramMediumEditableContent">ProgramMediumEditableContent</a></li><li><a href="global.html#ProgramPage">ProgramPage</a></li><li><a href="global.html#ProgramPageContent">ProgramPageContent</a></li><li><a href="global.html#ProgramPageContentLazy">ProgramPageContentLazy</a></li><li><a href="global.html#ProgramPageNavbar">ProgramPageNavbar</a></li><li><a href="global.html#ProgramReadAsyncAction">ProgramReadAsyncAction</a></li><li><a href="global.html#ProgramRouterSegment">ProgramRouterSegment</a></li><li><a href="global.html#ProgramScalarAttribute">ProgramScalarAttribute</a></li><li><a href="global.html#ProgramVectorsAttribute">ProgramVectorsAttribute</a></li><li><a href="global.html#QueryUserAsyncAction">QueryUserAsyncAction</a></li><li><a href="global.html#ReadOnlyLargeCard">ReadOnlyLargeCard</a></li><li><a href="global.html#ReadOnlyPage">ReadOnlyPage</a></li><li><a href="global.html#RemoveUserForm">RemoveUserForm</a></li><li><a href="global.html#TitleNavButton">TitleNavButton</a></li><li><a href="global.html#UserButton">UserButton</a></li><li><a href="global.html#UserCardCapsule">UserCardCapsule</a></li><li><a href="global.html#UserChildren">UserChildren</a></li><li><a href="global.html#UserGroupsAttribute">UserGroupsAttribute</a></li><li><a href="global.html#UserLargeCard">UserLargeCard</a></li><li><a href="global.html#UserLink">UserLink</a></li><li><a href="global.html#UserMediumCard">UserMediumCard</a></li><li><a href="global.html#UserMediumContent">UserMediumContent</a></li><li><a href="global.html#UserMediumEditableContent">UserMediumEditableContent</a></li><li><a href="global.html#UserPage">UserPage</a></li><li><a href="global.html#UserPageContent">UserPageContent</a></li><li><a href="global.html#UserPageContentLazy">UserPageContentLazy</a></li><li><a href="global.html#UserPageNavbar">UserPageNavbar</a></li><li><a href="global.html#UserReadAsyncAction">UserReadAsyncAction</a></li><li><a href="global.html#UserRouterSegment">UserRouterSegment</a></li><li><a href="global.html#UserScalarAttribute">UserScalarAttribute</a></li><li><a href="global.html#UserVectorsAttribute">UserVectorsAttribute</a></li><li><a href="global.html#groupInsertQuery">groupInsertQuery</a></li><li><a href="global.html#groupTypePageQuery">groupTypePageQuery</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Thu Jul 24 2025 10:02:10 GMT+0200 (Central European Summer Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
