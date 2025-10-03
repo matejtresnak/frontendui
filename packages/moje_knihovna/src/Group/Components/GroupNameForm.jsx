@@ -65,6 +65,7 @@ export const GroupNameForm = ({ group }) => {
       <Input
         placeholder="Nový název skupiny"
         value={newGroupName}
+        className="form-control"
         onChange={(e) => setNewGroupName(e.target.value)}
       />
 
